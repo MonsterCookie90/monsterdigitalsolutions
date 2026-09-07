@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Die Geschichte hinter TheMonsterz, Nexus Infernum und Monstrum Invictum.">
+  <title>Über TheMonsterz</title>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=CDvRnfTOBJglF6s8rw1vhuxlIsU-FTQYb3k__DqmUqIQ3g-wNubDzb4jpLWBmZ7LURa96DpgykUO0kBa92DJWdlHAUSzCvqjoI1151RiTWxSiDeRL0j9U2nN2islx-hx-KN4L2NpdCzvSoeeXEddbfInTSS-kNvccJ0pkI1twPQCteeKMIeDK_yGOkR4wRV5_bl0pMwjBrim8wrw0sCVZBurBx9zDTNLYg0YSHeK6tWuNsOX_4qADK19bolzUDPIF9-v5yaw0wTMoAScwaTYHQ" charset="UTF-8"></script><style>
+    :root {
+      --background: #050814;
+      --surface: #0a1124;
+      --text: #f7f8ff;
+      --muted: #afbbe2;
+      --line: rgba(175, 187, 226, .18);
+      --cyan: #00ddff;
+      --pink: #ff168f;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(0, 221, 255, .10), transparent 34rem),
+        radial-gradient(circle at 88% 30%, rgba(255, 22, 143, .08), transparent 30rem),
+        var(--background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .site-header {
+      min-height: 72px;
+      padding: 0 6vw;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: rgba(5, 8, 20, .88);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .navigation { display: flex; gap: 26px; color: var(--muted); font-weight: 700; }
+    .navigation a:hover, .navigation a:focus-visible { color: var(--cyan); }
+
+    main { width: min(980px, 88vw); margin: 0 auto; }
+    .hero { padding: 96px 0 62px; border-bottom: 1px solid var(--line); }
+    .eyebrow {
+      margin: 0;
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 16px 0 22px;
+      font-size: clamp(3.1rem, 8vw, 7rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.4vw, 1.35rem);
+      line-height: 1.65;
+    }
+
+    .biography { padding: 68px 0 90px; }
+    .biography p {
+      max-width: 800px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .biography p:first-child {
+      color: var(--text);
+      font-size: 1.28rem;
+      font-weight: 700;
+    }
+
+    .highlight {
+      margin: 50px 0;
+      padding: 30px 32px;
+      border: 1px solid rgba(0, 221, 255, .28);
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 20px 20px 0;
+      background: linear-gradient(135deg, rgba(0, 221, 255, .08), rgba(255, 22, 143, .05));
+    }
+
+    .highlight p { margin-bottom: 20px; }
+    .highlight p:last-child { margin-bottom: 0; }
+
+    .closing {
+      margin-top: 48px;
+      color: var(--text) !important;
+      font-size: clamp(1.4rem, 4vw, 2.25rem) !important;
+      font-weight: 900;
+      line-height: 1.25 !important;
+      letter-spacing: -.03em;
+    }
+
+    footer {
+      width: min(1180px, 88vw);
+      margin: 0 auto;
+      padding: 32px 0 45px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .legal-links a:hover { color: var(--cyan); }
+
+    @media (max-width: 640px) {
+      .site-header { padding: 18px 6vw; align-items: flex-start; flex-direction: column; }
+      .navigation { width: 100%; gap: 15px; justify-content: space-between; }
+      .hero { padding-top: 64px; }
+      .biography { padding-top: 48px; }
+      .highlight { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">TheMonsterz</a>
+    <nav class="navigation" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="ueber.html" aria-current="page">Über</a>
+      <a href="shop.html">Shop</a>
+      <a href="unterstuetzen.html">Unterstützen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Die Geschichte hinter der Musik</p>
+      <h1>Drei Klangwelten.<br>Eine Haltung.</h1>
+      <p class="lead">TheMonsterz, Nexus Infernum und Monstrum Invictum verbinden unterschiedliche Sounds mit persönlichen Gedanken, echten Erlebnissen und einer klaren Haltung.</p>
+    </section>
+
+    <article class="biography">
+      <p>Musik war für TheMonsterz schon immer mehr als bloße Unterhaltung. Sie hilft dabei, Gedanken zu sortieren, zur Ruhe zu kommen und neue Inspiration zu finden. Vor allem aber gibt sie Gefühlen einen Platz, die sich im Alltag nicht immer leicht in Worte fassen lassen.</p>
+
+      <p>Der musikalische Weg begann im Jahr 2023 zunächst mit einem kleinen Spaßprojekt. Was als Experiment startete, entwickelte sich schnell zu einer echten Leidenschaft. Aus ersten Versuchen entstanden immer neue Ideen, Texte und schließlich eine eigene musikalische Identität.</p>
+
+      <p>Der Name TheMonsterz verbindet Humor, eine gewisse Faszination für freche Monsterfiguren und die Überzeugung, sich selbst nicht immer zu ernst nehmen zu müssen. Hinter der frechen Oberfläche steckt jedoch Musik mit einer klaren Haltung und viel persönlicher Tiefe.</p>
+
+      <p>Die Grundtexte entstehen aus eigenen Gedanken, Erlebnissen und Ansichten. Inspiration liefern persönliche Erfahrungen, alltägliche Beobachtungen, Nachrichten und all das, was sich Leben nennt. Thematisch geht es häufig um Liebe, Freundschaft, Familie, Nächstenliebe, Gesundheit und gegenseitigen Respekt. Gleichzeitig werden auch schwierige Themen wie Verlust, Missbrauch, Gewalt oder Mord nicht ausgeklammert.</p>
+
+      <p>TheMonsterz möchte Menschen dazu bewegen, über Dinge nachzudenken, die eigentlich selbstverständlich sein sollten, im Alltag aber viel zu häufig untergehen. Die Musik soll Mut machen, wenn das Leben schwer wird. Sie soll zeigen, dass Rückschläge nicht das Ende bedeuten und niemand mit seinen Problemen vollkommen alleine ist. Denn Aufgeben ist keine Option.</p>
+
+      <div class="highlight">
+        <p>Besonders persönlich sind die Songs „Kleine Schwester“ und „Keine Option“. „Kleine Schwester“ handelt nicht von einer leiblichen Schwester, sondern von einer langjährigen Freundin, die sich wie Familie anfühlt. Bereits als Kinder bezeichneten sich beide aus Spaß als Bruder und Schwester – aus diesem kleinen gemeinsamen Moment entstand später ein Song über eine ganz besondere Verbindung.</p>
+
+        <p>Im Jahr 2025 wurde die als „kleine Schwester“ bezeichnete Freundin während eines Sturms von einem herabstürzenden Baum getroffen. Sie überlebte den schweren Unfall nur mit sehr viel Glück. Es folgte ein langer Krankenhausaufenthalt von mehr als einem halben Jahr. In diesem Song stecken deshalb nicht nur Gefühle und Erinnerungen an die gemeinsame Zeit. Er soll ihr auch Kraft und Mut geben und zeigen, dass Aufgeben selbst in den schwersten Momenten keine Option ist.</p>
+
+        <p>„Keine Option“ ist einem guten Freund gewidmet, der im Jahr 2003 im Alter von nur elf Jahren infolge einer schweren Meningokokken-Infektion verstarb. Die Person hinter TheMonsterz war damals selbst erst 13 Jahre alt. Es war eine Zeit, in der Fußballspielen, Radfahren und unbeschwerte gemeinsame Tage eigentlich das ganze Leben ausmachten. Durch den Song werden Erinnerungen und Gefühle festgehalten. So lebt der verstorbene Freund nicht nur im Herzen, sondern auch in Worten und auf eine besondere Weise akustisch weiter.</p>
+      </div>
+
+      <p>Musikalisch lässt sich TheMonsterz bewusst nicht auf eine einzige Klangfarbe reduzieren. Rap und Pop bilden den Mittelpunkt, ergänzt durch emotionale, kraftvolle und teilweise dunklere Einflüsse. Da jedoch auch Techno und Rock eine wichtige Rolle spielen, entstanden zwei weitere eigenständige Projekte.</p>
+
+      <p>Nexus Infernum steht für elektronische und atmosphärische Techno-Klänge. Monstrum Invictum verkörpert die härtere Welt des Rock. Durch diese klare Trennung behält jedes Projekt seine eigene Identität. Wer Rock hören möchte, soll nicht plötzlich zwischen Techno und Rap wechseln müssen. Trotzdem haben alle drei Projekte denselben Ursprung und werden durch gemeinsame Gedanken, Emotionen und Werte miteinander verbunden.</p>
+
+      <p>Die inhaltlichen Grundlagen und Texte entstehen persönlich. Moderne KI-Werkzeuge unterstützen anschließend bei der sprachlichen Überarbeitung und bei der musikalischen Umsetzung. Dieser Einsatz wird bewusst transparent gemacht, denn Technik ist hier kein Ersatz für Gefühle, Erinnerungen oder eigene Gedanken – sie ist das Werkzeug, mit dem diese hörbar werden.</p>
+
+      <p>Einer der bisher schönsten Momente entstand nicht auf einer großen Bühne, sondern ganz unerwartet an einer Ampel: Im Fahrzeug nebenan lief bei geöffnetem Fenster ein Song von TheMonsterz. Genau solche Augenblicke zeigen, dass Musik ihren eigenen Weg findet und Menschen erreichen kann, ohne dass man es vorher plant.</p>
+
+      <p>Auch in Zukunft soll TheMonsterz für Musik stehen, die Gefühle zulässt, Haltung zeigt und zum Nachdenken anregt. Musik über das Leben, über Menschen und über alles, was uns verbindet oder manchmal auch auseinanderbringt.</p>
+
+      <p class="closing">Modern, persönlich und direkt. Manchmal ernst, manchmal frech – aber niemals ohne Bedeutung.</p>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 TheMonsterz · monsterdigitalsolutions.de</span>
+    <div class="legal-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+</body>
+</html>
