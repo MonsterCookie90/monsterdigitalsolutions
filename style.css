@@ -176,10 +176,20 @@ h3 { line-height: 1.15; }
   height: 42px;
 }
 
-.brand-logo img {
+.brand-logo {
+  position: relative;
   display: block;
-  width: auto;
-  height: 38px;
-  max-width: 130px;
-  object-fit: contain;
+  width: 120px;
+  height: 54px;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 120px;
+  height: auto;
+  max-width: none;
+  transform: translateY(-50%);
 }
