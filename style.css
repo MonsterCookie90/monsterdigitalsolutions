@@ -170,3 +170,16 @@ h3 { line-height: 1.15; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+.brand-logo {
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+
+.brand-logo img {
+  display: block;
+  width: auto;
+  height: 38px;
+  max-width: 130px;
+  object-fit: contain;
+}
