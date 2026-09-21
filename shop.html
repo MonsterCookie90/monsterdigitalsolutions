@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="TheMonsterz Shop – Tassen, Accessoires und weitere Fanartikel.">
   <title>Shop &amp; Accessoires – TheMonsterz</title>
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=pLvQdlhRTwoLUpfa99bcYFj5zIM4iKY3jkTow-hjK0QkUePBNzUz9CP1GnxfVO5k02o_z1ueSTDLTcPHGBEfwjguNkDZFg2XoyzAD8uqBBfIQiFOtdv6bvhIBxFQeWiCwPKpnT5XowPOiG9Vuf8OirQeSG3pK3lVTfSlzVeart5TFVVpHQiZMU5dq_4VHY0l9gu-VPvf2u6JOXffYyX5c5JX2ii_50TAK4NG56vfC1psYjcw6OMXax3BfAXGLEGmvjoUQJ04o3gI0Z1O6YEUDA" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=aSagkKLC7aZfanrCShX3qimRsQLQ5bekmMwmiglDzOO9jesm77B_Ew-s3lw56vUE4kZGFQIXHWJopuVhCTpngWxq5GFXPikiMK2zlYG3qwp1O4l6vLuNqel4Jsf4TIrDnd5xUsmPnd3p663VI96qtrp3AibSwczxfnKHQo-0ONxyj5mN0KnQFE_HJyRErE8v6x3xM5SmtIERXQ3Six3XKSpk6WEwwTPdmzv39XCy4LQubDKoAKmSOobPJiNBSewodzRIXT7QMtLkFvvKD1hNMA" charset="UTF-8"></script><style>
     :root {
       --background: #050814;
       --surface: #0b1124;
@@ -141,6 +141,10 @@
     .description { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
     .product-footer { margin-top: auto; }
     .price { margin-bottom: 15px; font-size: 1.35rem; font-weight: 900; }
+    .shipping { margin: -7px 0 18px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+    .product-details { margin: 0 0 25px; padding-left: 20px; color: var(--muted); line-height: 1.65; }
+    .product-details li + li { margin-top: 4px; }
+    .product-note { margin: 18px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
 
     .button {
       width: 100%;
@@ -156,6 +160,8 @@
       background: rgba(255, 255, 255, .03);
       cursor: default;
     }
+    .button-buy { border-color: var(--cyan); background: var(--cyan); color: #061020; cursor: pointer; }
+    .button-buy:hover, .button-buy:focus-visible { background: #7cefff; border-color: #7cefff; }
 
     .notice {
       margin-bottom: 90px;
@@ -215,7 +221,7 @@
     <section class="hero">
       <p class="eyebrow">Merchandise von TheMonsterz</p>
       <h1>Shop &amp;<br>Accessoires.</h1>
-      <p class="intro">Freche Designs, Musik im Herzen und ein bisschen Monster im Alltag. Hier findest du künftig Tassen, Armbänder, Sticker und weitere Artikel von TheMonsterz.</p>
+      <p class="intro">Freche Designs, Musik im Herzen und ein bisschen Monster im Alltag. Die TheMonsterz Panoramatasse ist da – weitere Accessoires sind in Vorbereitung.</p>
     </section>
 
     <section class="products" aria-label="Produkte">
@@ -226,10 +232,17 @@
         <div class="product-content">
           <span class="badge">Neu</span>
           <h2>TheMonsterz Panoramatasse</h2>
-          <p class="description">Weiße Keramiktasse mit frechem TheMonsterz-Rundumdesign und der offiziellen Website.</p>
+          <p class="description">Dein Sound. Dein Style. Die TheMonsterz Panoramatasse bringt das markante Design als großflächigen Rundumdruck auf deinen Kaffee- oder Teebecher – zu Hause, im Büro oder im Musikstudio.</p>
+          <ul class="product-details">
+            <li>Hochwertige Keramik, Höhe ca. 9,5 cm</li>
+            <li>Umlaufender Panoramadruck mit TheMonsterz-Motiv</li>
+            <li>Spülmaschinengeeignet</li>
+          </ul>
           <div class="product-footer">
-            <div class="price">Preis folgt</div>
-            <span class="button" aria-disabled="true">Demnächst erhältlich</span>
+            <div class="price">21,90 €</div>
+            <p class="shipping">Zzgl. 4,90 € Versand pro Bestellung. Eine Tasse: 26,80 € gesamt.<br>Lieferzeit: 3–10 Tage.</p>
+            <a class="button button-buy" href="https://www.paypal.com/ncp/payment/9V9JFUZXAWFSJ" rel="noopener noreferrer">Jetzt bei PayPal bestellen</a>
+            <p class="product-note">Die Produktbilder sind digitale Vorschauen. Farben und Druckposition können beim fertigen Artikel geringfügig abweichen.</p>
           </div>
         </div>
       </article>
@@ -262,7 +275,7 @@
     </section>
 
     <aside class="notice">
-      Der Shop befindet sich im Aufbau. Bestellungen sind momentan noch nicht möglich. Sobald die ersten Artikel geprüft und verfügbar sind, werden hier Preis, Lieferzeit und Kaufmöglichkeit angezeigt.
+      Bitte vor Veröffentlichung noch das Liefergebiet der Tasse festlegen. Die übrigen Artikel befinden sich in Vorbereitung.
     </aside>
   </main>
 
@@ -270,6 +283,8 @@
     <span>© 2026 TheMonsterz · monsterdigitalsolutions.de</span>
     <div class="legal-links">
       <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerruf</a>
       <a href="datenschutz.html">Datenschutz</a>
     </div>
   </footer>
