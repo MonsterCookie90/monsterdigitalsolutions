@@ -58,20 +58,16 @@
             <p class="project-label">TheMonsterz</p>
             <h3>Helden ohne Rüstung</h3>
             <p>Die aktuelle Veröffentlichung von TheMonsterz – jetzt auf deiner bevorzugten Musikplattform anhören.</p>
-             <div class="spotify-player">
-  <p><strong>Jetzt „Helden ohne Rüstung“ anhören:</strong></p>
-
-  <iframe
-    src="https://open.spotify.com/embed/track/47AsnR32YNS3AYg4Ikbtq2?utm_source=generator&theme=0"
-    width="100%"
-    height="152"
-    frameborder="0"
-    allowfullscreen
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-    title="Helden ohne Rüstung von TheMonsterz auf Spotify">
-  </iframe>
-</div>
+            <div class="spotify-player" data-spotify-player>
+              <p><strong>Jetzt „Helden ohne Rüstung“ anhören:</strong></p>
+              <p>
+                Der Spotify-Player wird erst nach deiner Zustimmung geladen.
+                Dabei können Daten an Spotify übertragen werden.
+              </p>
+              <button class="button button-primary" type="button" data-load-spotify>
+                Spotify-Player laden
+              </button>
+            </div>
 <div class="link-row" aria-label="Links zu TheMonsterz">
 <a href="https://open.spotify.com/track/47AsnR32YNS3AYg4Ikbtq2" target="_blank" rel="noopener">Song auf Spotify</a>
   <a href="https://open.spotify.com/artist/5W3IAgtHGuSIK09i005Lof" target="_blank" rel="noopener">Spotify-Profil</a>
@@ -241,5 +237,28 @@
       </nav>
       <p>© <span id="year">2026</span> TheMonsterz</p>
     </footer>
+    <script>
+      document.querySelectorAll("[data-load-spotify]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const player = button.closest("[data-spotify-player]");
+          if (!player) return;
+
+          const iframe = document.createElement("iframe");
+          iframe.src = "https://open.spotify.com/embed/track/47AsnR32YNS3AYg4Ikbtq2?utm_source=generator&theme=0";
+          iframe.width = "100%";
+          iframe.height = "152";
+          iframe.setAttribute("frameborder", "0");
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.setAttribute(
+            "allow",
+            "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          );
+          iframe.loading = "lazy";
+          iframe.title = "Helden ohne Rüstung von TheMonsterz auf Spotify";
+
+          player.replaceChildren(iframe);
+        });
+      });
+    </script>
   </body>
 </html>
