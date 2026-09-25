@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Webdesign von Monster Digital Solutions – individuelle Websites und digitale Lösungen für Selbstständige, Unternehmen und lokale Betriebe.">
+  <meta name="theme-color" content="#050814">
+
+  <title>Webdesign & digitale Lösungen | Monster Digital Solutions</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iqunmwHx5PcK8lk0S2JOPsVPkTg2Evt2p2UbLML73AU04EC5kU-QlPeZ2_RNQ59K9xMZvre1UdbdgbGYIoYkiN0BURyLycouEXNcw6dH3ZDJyrb0skR8SZVnSj35ZFfEzjyPlPOWDIs20zjKLR4dH9xqYoE9ikjNJIQ5UwTC232dnMDdFKUO-NmybXrAjX-chzHHeskPNeD0DDIDXeaKOHiS1tKPW8CYU6nNCiVTvdMjC4_sSxlZ10lIcWigRymPs2lumvTHn_rKOAb-8651nPJt-o_E8otbaj_C1JvV2YAg1uXCTMUZlv5_D5V8d0tj" charset="UTF-8"></script><script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="themonsterz-logo.png">
+
+  <style>
+    .inquiry-form {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(10, 18, 38, .72);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+
+    .form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label,
+    .form-group-title {
+      font-weight: 700;
+      color: #f4f7ff;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .95rem 1rem;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 12px;
+      background: #0b1325;
+      color: #f4f7ff;
+      font: inherit;
+      outline: none;
+    }
+
+    .form-field textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: #1683ff;
+      box-shadow: 0 0 0 3px rgba(22,131,255,.14);
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .7rem 1.2rem;
+      margin-top: .65rem;
+    }
+
+    .check-item,
+    .privacy-check {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      color: #d9e2f2;
+      line-height: 1.45;
+    }
+
+    .check-item input,
+    .privacy-check input {
+      margin-top: .25rem;
+      accent-color: #1683ff;
+    }
+
+    .privacy-check {
+      margin-top: 1.4rem;
+      font-size: .95rem;
+    }
+
+    .privacy-check a {
+      color: #39d5ff;
+    }
+
+    .form-note {
+      margin: .8rem 0 0;
+      color: #aebbd0;
+      font-size: .9rem;
+    }
+
+    .form-submit {
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .form-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Auswahl-Kacheln im Webdesign-Anfrageformular */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .85rem;
+      margin-top: .8rem;
+    }
+
+    .check-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      min-height: 58px;
+      padding: .9rem 1rem;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: #0b1325;
+      color: #f4f7ff;
+      font-weight: 700;
+      line-height: 1.25;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .check-item:hover {
+      border-color: rgba(57,213,255,.55);
+      background: #0d1830;
+      transform: translateY(-1px);
+    }
+
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      border: 2px solid #64748b;
+      border-radius: 6px;
+      background: #07101f;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"]::before {
+      content: "✓";
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1;
+      transform: scale(0);
+      transition: transform .12s ease;
+    }
+
+    .check-item input[type="checkbox"]:checked {
+      border-color: #1683ff;
+      background: #1683ff;
+      box-shadow: 0 0 18px rgba(22,131,255,.28);
+    }
+
+    .check-item input[type="checkbox"]:checked::before {
+      transform: scale(1);
+    }
+
+    .check-item:has(input[type="checkbox"]:checked) {
+      border-color: #1683ff;
+      background: rgba(22,131,255,.10);
+      box-shadow: 0 0 0 1px rgba(22,131,255,.12);
+    }
+
+    @media (max-width: 720px) {
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <a class="mds-logo" href="index.html" aria-label="Monster Digital Solutions Startseite">
+      <span class="mds-monster">MONSTER</span>
+      <span class="mds-digital">DIGITAL SOLUTIONS</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">
+      Menü
+    </button>
+
+    <nav id="navigation" class="navigation" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="webdesign.html">Webdesign</a>
+      <a href="musik.html">Musik</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="start" class="hero">
+
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <p class="eyebrow">WEBDESIGN & DIGITALE LÖSUNGEN</p>
+
+        <h1>
+          Ihre Website.<br>
+          Ihr digitaler Auftritt.
+        </h1>
+
+        <p class="hero-copy">
+          Individuelle Websites für Selbstständige, Unternehmen und lokale Betriebe –
+          modern, übersichtlich und für alle Geräte optimiert.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#kontakt">Website anfragen</a>
+          <a class="button button-secondary" href="#leistungen">Leistungen ansehen</a>
+        </div>
+
+      </div>
+
+      <a class="scroll-hint" href="#leistungen" aria-label="Zu den Leistungen">
+        Weiter ↓
+      </a>
+
+    </section>
+
+
+    <!-- LEISTUNGEN -->
+    <section id="leistungen" class="section projects">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Leistungen</p>
+          <h2>Von der Idee bis zur fertigen Website.</h2>
+        </div>
+
+        <p>
+          Die Website wird passend zu Ihrem Unternehmen, Ihren Vorstellungen
+          und den benötigten Funktionen individuell umgesetzt.
+        </p>
+      </div>
+
+      <div class="project-list">
+
+        <article class="project-card project-main">
+          <div class="project-number">01</div>
+          <div>
+            <span class="status">Individuelles Webdesign</span>
+            <h3>Gestaltung & Entwicklung</h3>
+            <p>
+              Individuelle Gestaltung Ihrer Website passend zu Ihrem Unternehmen.
+              Von der Startseite bis zu zusätzlichen Unterseiten entsteht ein
+              einheitlicher und moderner Internetauftritt.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <div>
+            <h3>Smartphone, Tablet & Desktop</h3>
+            <p>
+              Ihre Website wird für unterschiedliche Bildschirmgrößen optimiert
+              und funktioniert sowohl auf Smartphones und Tablets als auch auf
+              Notebooks und Desktop-PCs.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <div>
+            <h3>Domain & technische Einrichtung</h3>
+            <p>
+              Unterstützung bei Domain, Webhosting, SSL-Verschlüsselung (HTTPS),
+              Veröffentlichung und der technischen Grundeinrichtung Ihrer Website.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">04</div>
+          <div>
+            <h3>Kontakt & Kundenfunktionen</h3>
+            <p>
+              Integration von Kontaktmöglichkeiten, E-Mail-Verlinkungen,
+              Telefonnummern, Navigation und – je nach Projekt –
+              Möglichkeiten zur Terminvereinbarung.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">05</div>
+          <div>
+            <h3>Bilder, Videos & Inhalte</h3>
+            <p>
+              Einbindung und Aufbereitung von Bildern, Videos, Texten,
+              Dienstleistungen, Preisübersichten und weiteren Inhalten.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">06</div>
+          <div>
+            <h3>Pflege & Erweiterungen</h3>
+            <p>
+              Auch nach der Veröffentlichung können Inhalte, Preise, Bilder
+              oder ganze Bereiche angepasst und erweitert werden.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUNKTIONEN -->
+    <section id="funktionen" class="section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Möglichkeiten</p>
+          <h2>Was kann Ihre Website können?</h2>
+        </div>
+
+        <p>
+          Je nach Unternehmen und Projekt lassen sich unterschiedliche Funktionen
+          und Inhalte miteinander kombinieren.
+        </p>
+      </div>
+
+      <div class="project-list">
+
+        <article class="project-card">
+          <div class="project-number">01</div>
+          <div>
+            <h3>Terminvereinbarung</h3>
+            <p>
+              Verlinkung oder Einbindung einer Möglichkeit, über die Ihre Kunden
+              Termine anfragen oder buchen können.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <div>
+            <h3>Google Maps & Navigation</h3>
+            <p>
+              Ihr Standort kann eingebunden oder direkt mit einer
+              Navigationsmöglichkeit verknüpft werden.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <div>
+            <h3>Kontaktformulare</h3>
+            <p>
+              Kunden können Anfragen direkt über die Website senden.
+              Umfang und abgefragte Angaben werden passend zum Projekt festgelegt.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">04</div>
+          <div>
+            <h3>Optimierung für Smartphones</h3>
+            <p>
+              Die Darstellung wird so aufgebaut, dass Ihre Website auch
+              unterwegs komfortabel genutzt werden kann.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">05</div>
+          <div>
+            <h3>Bilder, Videos & Audio</h3>
+            <p>
+              Bildergalerien, Videos und – wenn es zum Projekt passt –
+              Audio- oder Musikinhalte können integriert werden.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">06</div>
+          <div>
+            <h3>Social Media</h3>
+            <p>
+              Verknüpfungen zu Ihren Social-Media-Kanälen ermöglichen Besuchern,
+              Ihre weiteren Inhalte schnell zu erreichen.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">07</div>
+          <div>
+            <h3>Produkte & Angebote</h3>
+            <p>
+              Leistungen, Angebote oder ausgewählte Produkte können übersichtlich
+              auf eigenen Bereichen oder Unterseiten präsentiert werden.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">08</div>
+          <div>
+            <h3>Eigene Domain</h3>
+            <p>
+              Eine passende Internetadresse sorgt dafür, dass Ihr Unternehmen
+              professionell und einfach erreichbar ist.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card project-main">
+          <div class="project-number">09</div>
+          <div>
+            <span class="status">Sicherheit</span>
+            <h3>SSL-Verschlüsselung</h3>
+            <p>
+              Die Website wird über HTTPS bereitgestellt, sofern dies über
+              das eingesetzte Hosting entsprechend eingerichtet ist.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SOCIAL MEDIA & LAUFENDE BETREUUNG -->
+    <section id="betreuung" class="section projects">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Social Media & Betreuung</p>
+          <h2>Ihr digitaler Auftritt – auch nach dem Website-Start.</h2>
+        </div>
+
+        <p>
+          Auf Wunsch unterstütze ich Sie nicht nur bei Ihrer Website, sondern auch
+          beim Aufbau und bei der laufenden Pflege Ihres digitalen Auftritts.
+        </p>
+      </div>
+
+      <div class="project-list">
+
+        <article class="project-card project-main">
+          <div class="project-number">01</div>
+          <div>
+            <span class="status">Social Media</span>
+            <h3>Instagram & TikTok einrichten</h3>
+            <p>
+              Einrichtung und Gestaltung von Unternehmensprofilen auf Instagram und
+              TikTok – passend zu Ihrem Unternehmen und Ihrem bestehenden Markenauftritt.
+              Dazu können unter anderem Profilinformationen, Verlinkungen, Profilbilder
+              und die grundlegende Gestaltung des Auftritts gehören.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <div>
+            <h3>Content & Profilpflege</h3>
+            <p>
+              Auf Wunsch unterstütze ich Sie bei der laufenden Pflege Ihrer
+              Social-Media-Kanäle, beispielsweise bei Profilinformationen, Bildern,
+              Videos und Veröffentlichungen. Umfang und Häufigkeit werden individuell
+              mit Ihnen abgestimmt.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <div>
+            <h3>Website-Pflege & Betreuung</h3>
+            <p>
+              Auch nach der Veröffentlichung Ihrer Website bin ich auf Wunsch für Sie da.
+              Änderungen an Texten, Preisen, Bildern und Inhalten sowie regelmäßige Pflege
+              und Erweiterungen können individuell oder im Rahmen einer laufenden Betreuung
+              vereinbart werden.
+            </p>
+            <p>
+              <strong>Konditionen und Leistungsumfang auf Anfrage.</strong>
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="hero-actions" style="margin-top:2rem;">
+        <a class="button button-primary" href="#kontakt">Betreuung anfragen</a>
+      </div>
+
+    </section>
+
+    <!-- INDIVIDUELLE LÖSUNGEN -->
+    <section class="section about">
+
+      <p class="eyebrow">Individuelle Lösungen</p>
+
+      <div class="about-grid">
+
+        <h2>
+          Sie haben eine<br>
+          andere Idee?
+        </h2>
+
+        <div>
+          <p>
+            Nicht jede Website braucht dieselben Funktionen.
+          </p>
+
+          <p>
+            Wenn Sie etwas benötigen, das hier nicht aufgeführt ist,
+            können wir gemeinsam besprechen, ob und wie sich Ihre Idee
+            sinnvoll umsetzen lässt.
+          </p>
+
+          <a class="button button-primary" href="#kontakt">
+            Idee besprechen
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABLAUF -->
+    <section id="ablauf" class="section projects">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">So funktioniert es</p>
+          <h2>Von der Anfrage bis zur Veröffentlichung.</h2>
+        </div>
+
+        <p>
+          Der Ablauf wird persönlich abgestimmt und transparent gehalten.
+        </p>
+      </div>
+
+      <div class="project-list">
+
+        <article class="project-card">
+          <div class="project-number">01</div>
+          <div>
+            <h3>Anfrage & Wünsche</h3>
+            <p>
+              Sie erzählen mir, was Sie benötigen, welche Inhalte vorhanden
+              sind und wie Sie sich Ihre Website vorstellen.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <div>
+            <h3>Planung & Gestaltung</h3>
+            <p>
+              Aufbau, Design, Inhalte und Funktionen werden geplant und
+              anschließend umgesetzt.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <div>
+            <h3>Abstimmung</h3>
+            <p>
+              Sie sehen den aktuellen Stand und können Änderungswünsche
+              und Anpassungen mitteilen.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card project-main">
+          <div class="project-number">04</div>
+          <div>
+            <span class="status">Fertig</span>
+            <h3>Veröffentlichung</h3>
+            <p>
+              Nach der finalen Abstimmung wird die Website veröffentlicht
+              und ist für Ihre Kunden erreichbar.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- WARUM MDS -->
+    <section class="section about">
+
+      <p class="eyebrow">Monster Digital Solutions</p>
+
+      <div class="about-grid">
+
+        <h2>
+          Persönlich.<br>
+          Individuell.<br>
+          Digital.
+        </h2>
+
+        <div>
+          <p>
+            Keine Website von der Stange. Das Projekt wird passend zum
+            jeweiligen Unternehmen und den gewünschten Funktionen umgesetzt.
+          </p>
+
+          <p>
+            Sie haben während der Umsetzung einen direkten Ansprechpartner
+            und können Ihre Wünsche und Änderungen persönlich abstimmen.
+          </p>
+
+          <p>
+            Auch nach der Veröffentlichung kann die Website weiter gepflegt,
+            angepasst und erweitert werden.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- KONTAKT / ANFRAGEFORMULAR -->
+    <section id="kontakt" class="section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Unverbindlich anfragen</p>
+          <h2>Sie planen eine Website?</h2>
+        </div>
+
+        <p>
+          Erzählen Sie mir kurz von Ihrem Projekt. Mit ein paar Angaben kann ich
+          Ihre Anfrage besser einschätzen und mich anschließend bei Ihnen melden.
+        </p>
+      </div>
+
+      <form
+        class="inquiry-form"
+        action="https://formspree.io/f/xjykozgy"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Neue Webdesign-Anfrage über Monster Digital Solutions">
+        <input type="hidden" name="Formular" value="Monster Digital Solutions – Webdesign">
+
+        <div class="form-grid">
+
+          <div class="form-field">
+            <label for="name">Name *</label>
+            <input id="name" name="Name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="firma">Firma / Unternehmen</label>
+            <input id="firma" name="Firma" type="text" autocomplete="organization">
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-Mail-Adresse *</label>
+            <input id="email" name="E-Mail" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="Telefon" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="form-field">
+            <label for="website-art">Welche Website benötigen Sie? *</label>
+            <select id="website-art" name="Art der Website" required>
+              <option value="" selected disabled>Bitte auswählen</option>
+              <option>Unternehmenswebsite</option>
+              <option>Website für Selbstständige / Gewerbe</option>
+              <option>Landingpage / Onepager</option>
+              <option>Portfolio / Präsentation</option>
+              <option>Onlineshop</option>
+              <option>Bestehende Website überarbeiten</option>
+              <option>Andere / noch nicht sicher</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="domain">Ist bereits eine Domain vorhanden? *</label>
+            <select id="domain" name="Domain vorhanden" required>
+              <option value="" selected disabled>Bitte auswählen</option>
+              <option>Ja</option>
+              <option>Nein</option>
+              <option>Noch nicht sicher</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field-full">
+            <div class="form-group-title">Gewünschte Funktionen</div>
+
+            <div class="check-grid">
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Kontaktformular"><span>Kontaktformular</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Terminvereinbarung"><span>Terminvereinbarung</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Google Maps / Navigation"><span>Google Maps / Navigation</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Bildergalerie"><span>Bildergalerie</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Videos / Audio"><span>Videos / Audio</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Social Media"><span>Social Media</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Instagram / TikTok Einrichtung"><span>Instagram / TikTok Einrichtung</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Social-Media-Pflege"><span>Social-Media-Pflege</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Website-Pflege / laufende Betreuung"><span>Website-Pflege / laufende Betreuung</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Leistungen / Preise"><span>Leistungen / Preise</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Sonstiges"><span>Sonstiges</span></label>
+            </div>
+          </div>
+
+          <div class="form-field form-field-full">
+            <label for="nachricht">Erzählen Sie mir von Ihrem Projekt *</label>
+            <textarea
+              id="nachricht"
+              name="Nachricht"
+              placeholder="Was soll die Website können? Gibt es bereits Inhalte, Bilder oder besondere Wünsche?"
+              required
+            ></textarea>
+          </div>
+
+        </div>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
+          <span>
+            Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>
+            gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. *
+          </span>
+        </label>
+
+        <p class="form-note">* Pflichtfelder</p>
+
+        <div class="form-submit">
+          <button class="button button-primary" type="submit">
+            Unverbindliche Anfrage senden
+          </button>
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- MUSIK -->
+    <section class="section about">
+
+      <p class="eyebrow">Auch ein Teil von Monster Digital Solutions</p>
+
+      <div class="about-grid">
+
+        <h2>
+          Musik &<br>
+          kreative Projekte.
+        </h2>
+
+        <div>
+          <p>
+            Neben digitalen Dienstleistungen entstehen unter Monster Digital Solutions
+            auch eigene Musik- und Contentprojekte.
+          </p>
+
+          <p>
+            Entdecke TheMonsterz, Nexus Infernum und Monstrum Invictum
+            im eigenen Musikbereich.
+          </p>
+
+          <a class="button button-secondary" href="musik.html">
+            Zum Musikbereich
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div>
+      <strong>MONSTER DIGITAL SOLUTIONS</strong>
+      <p>Webdesign · Digitale Lösungen · Musik & Content</p>
+    </div>
+
+    <nav aria-label="Rechtliche Hinweise">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerruf</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+
+    <p>
+      © <span id="year">2026</span> Monster Digital Solutions
+    </p>
+
+  </footer>
+
+</body>
+</html>
