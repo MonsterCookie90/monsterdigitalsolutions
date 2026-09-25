@@ -193,3 +193,45 @@ h3 { line-height: 1.15; }
   max-width: none;
   transform: translateY(-50%);
 }
+/* Monster Digital Solutions Wortmarke */
+
+.mds-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.mds-monster {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  transform: skew(-6deg);
+  text-shadow:
+    2px 2px 0 #087cff,
+    4px 4px 12px rgba(0, 132, 255, 0.35);
+}
+
+.mds-digital {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #00d9ff;
+}
+
+.mds-logo:hover .mds-monster {
+  text-shadow:
+    2px 2px 0 #087cff,
+    0 0 18px rgba(0, 217, 255, 0.7);
+}
+
+.mds-logo:hover .mds-digital {
+  color: #ffffff;
+}
