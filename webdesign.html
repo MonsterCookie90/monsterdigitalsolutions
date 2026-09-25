@@ -10,7 +10,7 @@
   <title>Webdesign & digitale Lösungen | Monster Digital Solutions</title>
 
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iqunmwHx5PcK8lk0S2JOPsVPkTg2Evt2p2UbLML73AU04EC5kU-QlPeZ2_RNQ59K9xMZvre1UdbdgbGYIoYkiN0BURyLycouEXNcw6dH3ZDJyrb0skR8SZVnSj35ZFfEzjyPlPOWDIs20zjKLR4dH9xqYoE9ikjNJIQ5UwTC232dnMDdFKUO-NmybXrAjX-chzHHeskPNeD0DDIDXeaKOHiS1tKPW8CYU6nNCiVTvdMjC4_sSxlZ10lIcWigRymPs2lumvTHn_rKOAb-8651nPJt-o_E8otbaj_C1JvV2YAg1uXCTMUZlv5_D5V8d0tj" charset="UTF-8"></script><script src="script.js" defer></script>
   <link rel="icon" type="image/png" href="themonsterz-logo.png">
 
   <style>
@@ -115,6 +115,88 @@
 
     @media (max-width: 720px) {
       .form-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Auswahl-Kacheln im Webdesign-Anfrageformular */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .85rem;
+      margin-top: .8rem;
+    }
+
+    .check-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      min-height: 58px;
+      padding: .9rem 1rem;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: #0b1325;
+      color: #f4f7ff;
+      font-weight: 700;
+      line-height: 1.25;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .check-item:hover {
+      border-color: rgba(57,213,255,.55);
+      background: #0d1830;
+      transform: translateY(-1px);
+    }
+
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      border: 2px solid #64748b;
+      border-radius: 6px;
+      background: #07101f;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"]::before {
+      content: "✓";
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1;
+      transform: scale(0);
+      transition: transform .12s ease;
+    }
+
+    .check-item input[type="checkbox"]:checked {
+      border-color: #1683ff;
+      background: #1683ff;
+      box-shadow: 0 0 18px rgba(22,131,255,.28);
+    }
+
+    .check-item input[type="checkbox"]:checked::before {
+      transform: scale(1);
+    }
+
+    .check-item:has(input[type="checkbox"]:checked) {
+      border-color: #1683ff;
+      background: rgba(22,131,255,.10);
+      box-shadow: 0 0 0 1px rgba(22,131,255,.12);
+    }
+
+    @media (max-width: 720px) {
       .check-grid {
         grid-template-columns: 1fr;
       }
@@ -583,6 +665,7 @@
               <option>Website für Selbstständige / Gewerbe</option>
               <option>Landingpage / Onepager</option>
               <option>Portfolio / Präsentation</option>
+              <option>Onlineshop</option>
               <option>Bestehende Website überarbeiten</option>
               <option>Andere / noch nicht sicher</option>
             </select>
@@ -602,14 +685,14 @@
             <div class="form-group-title">Gewünschte Funktionen</div>
 
             <div class="check-grid">
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Kontaktformular"> Kontaktformular</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Terminvereinbarung"> Terminvereinbarung</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Google Maps / Navigation"> Google Maps / Navigation</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Bildergalerie"> Bildergalerie</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Videos / Audio"> Videos / Audio</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Social Media"> Social Media</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Leistungen / Preise"> Leistungen / Preise</label>
-              <label class="check-item"><input type="checkbox" name="Funktionen" value="Sonstiges"> Sonstiges</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Kontaktformular"><span>Kontaktformular</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Terminvereinbarung"><span>Terminvereinbarung</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Google Maps / Navigation"><span>Google Maps / Navigation</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Bildergalerie"><span>Bildergalerie</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Videos / Audio"><span>Videos / Audio</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Social Media"><span>Social Media</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Leistungen / Preise"><span>Leistungen / Preise</span></label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Sonstiges"><span>Sonstiges</span></label>
             </div>
           </div>
 
