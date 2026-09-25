@@ -10,8 +10,117 @@
   <title>Webdesign & digitale Lösungen | Monster Digital Solutions</title>
 
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=UGNahzaEDzXYm-48-bsxYPnC4hxngLlymPtBI37alDn_ECQVXzVkqDHTbYu8l9zJBt8K7eebyNfo0F9uB1t1sV7Vn1QNRfmUqGczxkWuhOJ4uscqWPU7HBmNTd8j7SrPFM8E4ZZq9bxCOVzZqA_azEcv2PgdIaVsXGvL8Ic4PUHGX2jPZBi47dl5D3RVM226_zuXKhDKAesRd9qAToqzDuwcBgXHAz3JFB_k9UfLL_QdyKfF4DgFWhwJXeEWbZ44YdEvC-ACWwYklwggAVSL7Eq1EFsbDegkbJB2pdcrzVm5L1BZLodsfIATt-LcDTI7" charset="UTF-8"></script><script src="script.js" defer></script>
+  <script src="script.js" defer></script>
   <link rel="icon" type="image/png" href="themonsterz-logo.png">
+
+  <style>
+    .inquiry-form {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(10, 18, 38, .72);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+
+    .form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label,
+    .form-group-title {
+      font-weight: 700;
+      color: #f4f7ff;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .95rem 1rem;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 12px;
+      background: #0b1325;
+      color: #f4f7ff;
+      font: inherit;
+      outline: none;
+    }
+
+    .form-field textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: #1683ff;
+      box-shadow: 0 0 0 3px rgba(22,131,255,.14);
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .7rem 1.2rem;
+      margin-top: .65rem;
+    }
+
+    .check-item,
+    .privacy-check {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      color: #d9e2f2;
+      line-height: 1.45;
+    }
+
+    .check-item input,
+    .privacy-check input {
+      margin-top: .25rem;
+      accent-color: #1683ff;
+    }
+
+    .privacy-check {
+      margin-top: 1.4rem;
+      font-size: .95rem;
+    }
+
+    .privacy-check a {
+      color: #39d5ff;
+    }
+
+    .form-note {
+      margin: .8rem 0 0;
+      color: #aebbd0;
+      font-size: .9rem;
+    }
+
+    .form-submit {
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .form-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -421,7 +530,7 @@
     </section>
 
 
-    <!-- KONTAKT -->
+    <!-- KONTAKT / ANFRAGEFORMULAR -->
     <section id="kontakt" class="section">
 
       <div class="section-heading">
@@ -431,28 +540,108 @@
         </div>
 
         <p>
-          Schreiben Sie mir kurz, was Sie sich vorstellen.
-          Gemeinsam können wir besprechen, welche Lösung zu Ihrem Projekt passt.
+          Erzählen Sie mir kurz von Ihrem Projekt. Mit ein paar Angaben kann ich
+          Ihre Anfrage besser einschätzen und mich anschließend bei Ihnen melden.
         </p>
       </div>
 
-      <div class="hero-actions">
+      <form
+        class="inquiry-form"
+        action="https://formspree.io/f/xjykozgy"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Neue Webdesign-Anfrage über Monster Digital Solutions">
+        <input type="hidden" name="Formular" value="Monster Digital Solutions – Webdesign">
 
-        <a
-          class="button button-primary"
-          href="mailto:kontakt@monsterdigitalsolutions.de?subject=Anfrage%20Webdesign"
-        >
-          Website anfragen
-        </a>
+        <div class="form-grid">
 
-        <a
-          class="button button-secondary"
-          href="mailto:kontakt@monsterdigitalsolutions.de"
-        >
-          kontakt@monsterdigitalsolutions.de
-        </a>
+          <div class="form-field">
+            <label for="name">Name *</label>
+            <input id="name" name="Name" type="text" autocomplete="name" required>
+          </div>
 
-      </div>
+          <div class="form-field">
+            <label for="firma">Firma / Unternehmen</label>
+            <input id="firma" name="Firma" type="text" autocomplete="organization">
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-Mail-Adresse *</label>
+            <input id="email" name="E-Mail" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="Telefon" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="form-field">
+            <label for="website-art">Welche Website benötigen Sie? *</label>
+            <select id="website-art" name="Art der Website" required>
+              <option value="" selected disabled>Bitte auswählen</option>
+              <option>Unternehmenswebsite</option>
+              <option>Website für Selbstständige / Gewerbe</option>
+              <option>Landingpage / Onepager</option>
+              <option>Portfolio / Präsentation</option>
+              <option>Bestehende Website überarbeiten</option>
+              <option>Andere / noch nicht sicher</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="domain">Ist bereits eine Domain vorhanden? *</label>
+            <select id="domain" name="Domain vorhanden" required>
+              <option value="" selected disabled>Bitte auswählen</option>
+              <option>Ja</option>
+              <option>Nein</option>
+              <option>Noch nicht sicher</option>
+            </select>
+          </div>
+
+          <div class="form-field form-field-full">
+            <div class="form-group-title">Gewünschte Funktionen</div>
+
+            <div class="check-grid">
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Kontaktformular"> Kontaktformular</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Terminvereinbarung"> Terminvereinbarung</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Google Maps / Navigation"> Google Maps / Navigation</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Bildergalerie"> Bildergalerie</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Videos / Audio"> Videos / Audio</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Social Media"> Social Media</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Leistungen / Preise"> Leistungen / Preise</label>
+              <label class="check-item"><input type="checkbox" name="Funktionen" value="Sonstiges"> Sonstiges</label>
+            </div>
+          </div>
+
+          <div class="form-field form-field-full">
+            <label for="nachricht">Erzählen Sie mir von Ihrem Projekt *</label>
+            <textarea
+              id="nachricht"
+              name="Nachricht"
+              placeholder="Was soll die Website können? Gibt es bereits Inhalte, Bilder oder besondere Wünsche?"
+              required
+            ></textarea>
+          </div>
+
+        </div>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
+          <span>
+            Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>
+            gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. *
+          </span>
+        </label>
+
+        <p class="form-note">* Pflichtfelder</p>
+
+        <div class="form-submit">
+          <button class="button button-primary" type="submit">
+            Unverbindliche Anfrage senden
+          </button>
+        </div>
+
+      </form>
 
     </section>
 
