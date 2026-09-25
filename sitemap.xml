@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://monsterdigitalsolutions.de/</loc></url>
-  <url><loc>https://monsterdigitalsolutions.de/webdesign.html</loc></url>
-  <url><loc>https://monsterdigitalsolutions.de/musik.html</loc></url>
+
+  <url>
+    <loc>https://monsterdigitalsolutions.de/</loc>
+  </url>
+
+  <url>
+    <loc>https://monsterdigitalsolutions.de/webdesign.html</loc>
+  </url>
+
+  <url>
+    <loc>https://monsterdigitalsolutions.de/musik.html</loc>
+  </url>
+
+  <url>
+    <loc>https://monsterdigitalsolutions.de/shop.html</loc>
+  </url>
+
 </urlset>
