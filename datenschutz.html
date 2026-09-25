@@ -6,7 +6,7 @@
 <meta name="description" content="Datenschutzerklärung von Monster Digital Solutions.">
 <title>Datenschutz | Monster Digital Solutions</title>
 <link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EKD-Z7Vweor_027ISdgAssENGx2wgC9eyX4lPtGb9CmOT5gq0ir7A_pBBqoD01m5YDsIZMnBDROUGsX3NV4hiNOjl2CSfAGhgw3j9kmJ9l-6xgyxICgmSttyEL02gReH2PoSS0TibCV38iGzVr83jDpKkubTEVJSbu1KS5pdeLbigfEPle6Rv1BO3d-BUmxIaq-YC8En0CrlxrhtYS71jXAfAY1hDeOsdBLoUNQyud_mtmHJeMz5UEqFClrVP6EEh0EWwRCsZDqiQNbLh2oJG_tEb3uBtlHX4H-6BkBjggfHa0eMNUwC7w7arJEApSpmp41OZWrsSqtbUsn9P5ZfqQ" charset="UTF-8"></script><style>
+<style>
 .privacy-content{max-width:1000px;margin:0 auto;padding:130px 24px 80px;line-height:1.75}
 .privacy-content h1{font-size:clamp(2.3rem,6vw,4.8rem);margin:0 0 2rem}
 .privacy-content h2{margin-top:3.5rem;font-size:clamp(1.5rem,3vw,2.2rem)}
@@ -16,13 +16,15 @@
 .privacy-content ul{padding-left:1.4rem}
 .privacy-content strong{color:#fff}
 </style>
+<script src="script.js" defer></script>
 </head>
 <body>
 <header class="site-header">
 <a class="mds-logo" href="index.html" aria-label="Monster Digital Solutions Startseite">
 <span class="mds-monster">MONSTER</span><span class="mds-digital">DIGITAL SOLUTIONS</span>
 </a>
-<nav class="navigation" aria-label="Hauptnavigation">
+<button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Menü</button>
+<nav id="navigation" class="navigation" aria-label="Hauptnavigation">
 <a href="index.html">Startseite</a>
 <a href="webdesign.html">Webdesign</a>
 <a href="musik.html">Musik</a>
@@ -111,13 +113,9 @@
 <p>Stand: 25.09.2026, 13:16:02</p>
 </main>
 <footer class="site-footer">
-<nav aria-label="Rechtliche Hinweise">
-<a href="impressum.html">Impressum</a>
-<a href="agb.html">AGB</a>
-<a href="widerruf.html">Widerruf</a>
-<a href="datenschutz.html">Datenschutz</a>
-</nav>
-<p>© 2026 Monster Digital Solutions</p>
+<div><strong>MONSTER DIGITAL SOLUTIONS</strong><p>Webdesign · Social Media · Digitale Lösungen · Musik &amp; Content</p></div>
+<nav aria-label="Rechtliche Hinweise"><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a><a href="widerruf.html">Widerruf</a><a href="datenschutz.html" aria-current="page">Datenschutz</a></nav>
+<p>© <span id="year">2026</span> Monster Digital Solutions</p>
 </footer>
 </body>
 </html>
