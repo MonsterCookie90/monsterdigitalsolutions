@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://monsterdigitalsolutions.de/webdesign.html">
 
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=j0WbDTelvl0RBZpIcebynJBQ5VHQdAxlE02xT4OzrC4l3AWtQdeee1uwGbb4fZV07f_GClx_AcW0ywNyUNbfvrqv9mSAmxxz4w-4-UXqyHLnrwEYYb4RtRMly5hsMtlw9N67KqAexjjZLGzWNUmngsa8u8GtQoJC_hHxr5zlOy4GfK-c8asKCBlQoQBfobmD31mjUaOdN4YAMFjDDPPbwrWImC_U6PYQaj8mBMgtQ58M2ZtppMlP1yVpVW-aOfYdoCOiNaTYDmGggfEsNYjGhhrNccO006YHmvQKoczxfoh6xr-yHDd6S-Nh55_hLGUc" charset="UTF-8"></script><script src="script.js" defer></script>
+  <script src="script.js" defer></script>
   <link rel="icon" type="image/png" href="themonsterz-logo.png">
 
   <style>
@@ -205,6 +205,98 @@
     }
   </style>
 
+
+  <style>
+    /* Floating Website Showcases */
+    .hero { overflow: hidden; position: relative; }
+    .hero-content { position: relative; z-index: 4; }
+
+    .hero-showcases {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .site-preview {
+      position: absolute;
+      width: clamp(270px, 25vw, 440px);
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border: 1px solid rgba(74, 163, 255, .42);
+      border-radius: 14px;
+      background: rgba(8, 15, 31, .76);
+      box-shadow: 0 18px 70px rgba(0, 91, 255, .18), 0 0 35px rgba(0, 221, 255, .08);
+      opacity: .30;
+      filter: saturate(.9);
+      transform-style: preserve-3d;
+      animation: previewFloat 8s ease-in-out infinite;
+    }
+
+    .site-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(0,221,255,.06), transparent 45%, rgba(36,107,255,.10));
+      pointer-events: none;
+    }
+
+    .preview-bar {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 11px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(5,8,20,.9);
+    }
+    .preview-bar i {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.28);
+    }
+    .preview-page { height: calc(100% - 28px); padding: 18px; position: relative; }
+    .preview-nav { height: 7px; width: 48%; border-radius: 8px; background: rgba(255,255,255,.20); margin-bottom: 17px; }
+    .preview-title { width: 62%; height: 17px; border-radius: 8px; background: rgba(255,255,255,.76); margin-bottom: 9px; }
+    .preview-title.short { width: 43%; }
+    .preview-copy { width: 53%; height: 6px; border-radius: 8px; background: rgba(255,255,255,.20); margin: 7px 0; }
+    .preview-button { width: 82px; height: 24px; border-radius: 7px; background: #1683ff; margin-top: 17px; }
+    .preview-visual {
+      position: absolute; right: 16px; bottom: 15px;
+      width: 38%; height: 62%; border-radius: 11px;
+      background: linear-gradient(145deg, rgba(0,221,255,.32), rgba(22,131,255,.10)), #17243e;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .preview-food .preview-visual { background: radial-gradient(circle at 55% 45%, #d48b48, #47291e 38%, #111827 70%); }
+    .preview-build .preview-visual { background: linear-gradient(145deg, #aeb8c4, #526273 50%, #1a2431); }
+    .preview-beauty .preview-visual { background: radial-gradient(circle at 55% 42%, #c99982, #6b3d45 45%, #17111b 75%); }
+    .preview-digital .preview-visual { background: linear-gradient(145deg, #101b50, #51249b 48%, #07111e); }
+
+    .preview-left-top { left: -5%; top: 12%; transform: rotate(4deg) perspective(900px) rotateY(10deg); }
+    .preview-left-bottom { left: -3%; bottom: 8%; transform: rotate(-3deg) perspective(900px) rotateY(9deg); animation-delay: -2s; }
+    .preview-right-top { right: -5%; top: 10%; transform: rotate(-4deg) perspective(900px) rotateY(-10deg); animation-delay: -4s; }
+    .preview-right-bottom { right: -3%; bottom: 8%; transform: rotate(3deg) perspective(900px) rotateY(-9deg); animation-delay: -6s; }
+
+    @keyframes previewFloat {
+      0%,100% { translate: 0 0; }
+      50% { translate: 0 -10px; }
+    }
+
+    @media (max-width: 1250px) {
+      .site-preview { opacity: .18; width: 31vw; }
+      .preview-left-top, .preview-left-bottom { left: -13%; }
+      .preview-right-top, .preview-right-bottom { right: -13%; }
+    }
+
+    @media (max-width: 820px) {
+      .hero-showcases { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-preview { animation: none; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -237,6 +329,49 @@
     <section id="start" class="hero">
 
       <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-showcases" aria-hidden="true">
+        <div class="site-preview preview-food preview-left-top">
+          <div class="preview-bar"><i></i><i></i><i></i></div>
+          <div class="preview-page">
+            <div class="preview-nav"></div>
+            <div class="preview-title"></div><div class="preview-title short"></div>
+            <div class="preview-copy"></div><div class="preview-copy"></div>
+            <div class="preview-button"></div><div class="preview-visual"></div>
+          </div>
+        </div>
+
+        <div class="site-preview preview-build preview-left-bottom">
+          <div class="preview-bar"><i></i><i></i><i></i></div>
+          <div class="preview-page">
+            <div class="preview-nav"></div>
+            <div class="preview-title"></div><div class="preview-title short"></div>
+            <div class="preview-copy"></div><div class="preview-copy"></div>
+            <div class="preview-button"></div><div class="preview-visual"></div>
+          </div>
+        </div>
+
+        <div class="site-preview preview-beauty preview-right-top">
+          <div class="preview-bar"><i></i><i></i><i></i></div>
+          <div class="preview-page">
+            <div class="preview-nav"></div>
+            <div class="preview-title"></div><div class="preview-title short"></div>
+            <div class="preview-copy"></div><div class="preview-copy"></div>
+            <div class="preview-button"></div><div class="preview-visual"></div>
+          </div>
+        </div>
+
+        <div class="site-preview preview-digital preview-right-bottom">
+          <div class="preview-bar"><i></i><i></i><i></i></div>
+          <div class="preview-page">
+            <div class="preview-nav"></div>
+            <div class="preview-title"></div><div class="preview-title short"></div>
+            <div class="preview-copy"></div><div class="preview-copy"></div>
+            <div class="preview-button"></div><div class="preview-visual"></div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="hero-content">
 
