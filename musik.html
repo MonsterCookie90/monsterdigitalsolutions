@@ -16,6 +16,244 @@
     <link rel="icon" type="image/png" href="themonsterz-logo.png">
   </head>
   <body>
+
+  <!-- Release-Popup: TheMonsterz – Du kennst nur meinen Namen -->
+  <div id="release-popup" class="release-popup" hidden>
+    <div class="release-popup__backdrop" data-release-close></div>
+
+    <section class="release-popup__dialog" role="dialog" aria-modal="true"
+             aria-labelledby="release-popup-title" aria-describedby="release-popup-text">
+      <button class="release-popup__close" type="button" data-release-close
+              aria-label="Release-Hinweis schließen">×</button>
+
+      <div class="release-popup__badge">NEUER RELEASE</div>
+
+      <img class="release-popup__cover"
+           src="Du kennst nur meinen Namen.png"
+           alt="Cover von Du kennst nur meinen Namen von TheMonsterz">
+
+      <div class="release-popup__content">
+        <p class="release-popup__artist">TheMonsterz</p>
+        <h2 id="release-popup-title">Du kennst nur meinen Namen</h2>
+
+        <p id="release-popup-text" class="release-popup__text">
+          Der neue Song von TheMonsterz erscheint am
+          <strong>08.10.2026 um 12:00 Uhr</strong>.
+        </p>
+
+        <p class="release-popup__availability" data-release-status>
+          Verfügbar ab 08.10.2026 · 12:00 Uhr
+        </p>
+
+        <button class="button button-primary release-popup__teaser-button"
+                type="button" data-release-teaser>
+          ▶ Hörprobe ansehen
+        </button>
+
+        <div class="release-popup__video-wrap" data-release-video-wrap hidden>
+          <video class="release-popup__video" controls playsinline preload="metadata"
+                 poster="Du kennst nur meinen Namen.png" data-release-video>
+            <source src="du-kennst-nur-meinen-namen-hoerprobe.mp4" type="video/mp4">
+            Dein Browser unterstützt dieses Video leider nicht.
+          </video>
+        </div>
+
+        <a class="button button-primary release-popup__spotify"
+           href="https://open.spotify.com/artist/5W3IAgtHGuSIK09i005Lof"
+           target="_blank" rel="noopener" data-release-spotify hidden>
+          Jetzt auf Spotify anhören
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .release-popup[hidden] { display: none !important; }
+    .release-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+    .release-popup__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 5, 12, .82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .release-popup__dialog {
+      position: relative;
+      width: min(92vw, 540px);
+      max-height: 92vh;
+      overflow: auto;
+      border: 1px solid rgba(230, 177, 91, .32);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(13,18,30,.98), rgba(5,8,20,.98));
+      box-shadow: 0 28px 90px rgba(0,0,0,.58);
+      color: #fff;
+      text-align: center;
+    }
+    .release-popup__close {
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      right: 12px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      background: rgba(0,0,0,.62);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .release-popup__badge {
+      position: absolute;
+      z-index: 2;
+      top: 16px;
+      left: 16px;
+      padding: 7px 11px;
+      border: 1px solid rgba(230,177,91,.5);
+      border-radius: 999px;
+      background: rgba(4,7,14,.76);
+      color: #efc477;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .release-popup__cover {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 21px 21px 0 0;
+    }
+    .release-popup__content { padding: 22px 24px 26px; }
+    .release-popup__artist {
+      margin: 0 0 4px;
+      color: #efc477;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .release-popup__content h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.65rem, 5vw, 2.35rem);
+      line-height: 1.05;
+    }
+    .release-popup__text {
+      margin: 0 auto 12px;
+      max-width: 440px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.55;
+    }
+    .release-popup__availability {
+      margin: 14px 0 18px;
+      color: #efc477;
+      font-weight: 800;
+    }
+    .release-popup__teaser-button,
+    .release-popup__spotify {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .release-popup__video-wrap {
+      margin-top: 16px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #000;
+    }
+    .release-popup__video {
+      display: block;
+      width: 100%;
+      max-height: 58vh;
+      background: #000;
+    }
+    .release-popup__spotify { margin-top: 14px; }
+    body.release-popup-open { overflow: hidden; }
+
+    @media (max-width: 520px) {
+      .release-popup { padding: 10px; }
+      .release-popup__dialog { width: 96vw; max-height: 95vh; border-radius: 18px; }
+      .release-popup__cover { border-radius: 17px 17px 0 0; }
+      .release-popup__content { padding: 18px 16px 20px; }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const popup = document.getElementById("release-popup");
+      if (!popup) return;
+
+      const video = popup.querySelector("[data-release-video]");
+      const videoWrap = popup.querySelector("[data-release-video-wrap]");
+      const teaserButton = popup.querySelector("[data-release-teaser]");
+      const spotifyButton = popup.querySelector("[data-release-spotify]");
+      const status = popup.querySelector("[data-release-status]");
+      const text = popup.querySelector("#release-popup-text");
+
+      // 08.10.2026, 12:00 Uhr in Deutschland (CEST = UTC+2)
+      const releaseTime = new Date("2026-10-08T12:00:00+02:00");
+
+      // Einmal pro Kalendertag im Browser anzeigen.
+      const today = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: "Europe/Berlin",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(new Date());
+
+      const storageKey = "themonsterz-release-popup-last-seen";
+      let lastSeen = null;
+      try { lastSeen = localStorage.getItem(storageKey); } catch (e) {}
+
+      const isReleased = new Date() >= releaseTime;
+
+      if (isReleased) {
+        status.textContent = "JETZT VERFÜGBAR";
+        text.innerHTML = 'Der neue Song <strong>„Du kennst nur meinen Namen“</strong> von TheMonsterz ist jetzt verfügbar.';
+        spotifyButton.hidden = false;
+      }
+
+      const openPopup = () => {
+        popup.hidden = false;
+        document.body.classList.add("release-popup-open");
+        try { localStorage.setItem(storageKey, today); } catch (e) {}
+      };
+
+      const closePopup = () => {
+        if (video) video.pause();
+        popup.hidden = true;
+        document.body.classList.remove("release-popup-open");
+      };
+
+      popup.querySelectorAll("[data-release-close]").forEach((el) => {
+        el.addEventListener("click", closePopup);
+      });
+
+      teaserButton.addEventListener("click", async () => {
+        videoWrap.hidden = false;
+        teaserButton.hidden = true;
+        try { await video.play(); } catch (e) {}
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !popup.hidden) closePopup();
+      });
+
+      if (lastSeen !== today) {
+        window.addEventListener("load", () => {
+          window.setTimeout(openPopup, 450);
+        });
+      }
+    })();
+  </script>
+
     <header class="site-header">
       <a class="brand brand-logo" href="#start" aria-label="TheMonsterz Startseite">
   <img src="themonsterz-header-logo.png" alt="TheMonsterz">
