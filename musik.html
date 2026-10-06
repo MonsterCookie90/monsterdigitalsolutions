@@ -57,13 +57,7 @@
             Dein Browser unterstützt dieses Video leider nicht.
           </video>
         </div>
-
-        <a class="button button-primary release-popup__spotify"
-           href="https://open.spotify.com/artist/5W3IAgtHGuSIK09i005Lof"
-           target="_blank" rel="noopener" data-release-spotify hidden>
-          Jetzt auf Spotify anhören
-        </a>
-      </div>
+</div>
     </section>
   </div>
 
@@ -156,8 +150,7 @@
       color: #efc477;
       font-weight: 800;
     }
-    .release-popup__teaser-button,
-    .release-popup__spotify {
+    .release-popup__teaser-button {
       width: 100%;
       justify-content: center;
       box-sizing: border-box;
@@ -174,7 +167,6 @@
       max-height: 58vh;
       background: #000;
     }
-    .release-popup__spotify { margin-top: 14px; }
     body.release-popup-open { overflow: hidden; }
 
     @media (max-width: 520px) {
@@ -193,7 +185,6 @@
       const video = popup.querySelector("[data-release-video]");
       const videoWrap = popup.querySelector("[data-release-video-wrap]");
       const teaserButton = popup.querySelector("[data-release-teaser]");
-      const spotifyButton = popup.querySelector("[data-release-spotify]");
       const status = popup.querySelector("[data-release-status]");
       const text = popup.querySelector("#release-popup-text");
 
@@ -217,7 +208,6 @@
       if (isReleased) {
         status.textContent = "JETZT VERFÜGBAR";
         text.innerHTML = 'Der neue Song <strong>„Du kennst nur meinen Namen“</strong> von TheMonsterz ist jetzt verfügbar.';
-        spotifyButton.hidden = false;
       }
 
       const openPopup = () => {
