@@ -236,7 +236,9 @@
         if (event.key === "Escape" && !popup.hidden) closePopup();
       });
 
-      if (lastSeen !== today) {
+      // Nach dem 11.10.2026 nicht mehr automatisch anzeigen (deutsche Zeit).
+      const popupEndTime = new Date("2026-10-12T00:00:00+02:00");
+      if (new Date() < popupEndTime && lastSeen !== today) {
         window.addEventListener("load", () => {
           window.setTimeout(openPopup, 450);
         });
