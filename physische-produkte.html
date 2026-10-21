@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TheMonsterz Panoramatasse und geplante Merchandise-Artikel im Shop von Monster Digital Solutions.">
+  <title>Physische Produkte | Monster Digital Solutions</title>
+  <link rel="canonical" href="https://monsterdigitalsolutions.de/physische-produkte.html">
+  <style>
+    :root {
+      --background: #050814;
+      --surface: #0b1124;
+      --surface-strong: #101935;
+      --text: #f6f7ff;
+      --muted: #afbbe2;
+      --line: #253052;
+      --cyan: #00ddff;
+      --pink: #ff168f;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(0, 221, 255, .12), transparent 32rem),
+        radial-gradient(circle at 85% 28%, rgba(255, 22, 143, .10), transparent 28rem),
+        var(--background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .site-header {
+      min-height: 72px;
+      padding: 0 6vw;
+      border-bottom: 1px solid rgba(175, 187, 226, .18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: rgba(5, 8, 20, .86);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .navigation { display: flex; gap: 26px; color: var(--muted); font-weight: 700; }
+    .navigation a:hover, .navigation a:focus-visible { color: var(--cyan); }
+
+    main { width: min(1180px, 88vw); margin: 0 auto; }
+
+    .hero { padding: 96px 0 62px; max-width: 900px; }
+    .eyebrow {
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 15px 0 20px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      line-height: 1.7;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      padding-bottom: 90px;
+    }
+
+    .product-card {
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(16, 25, 53, .96), rgba(8, 13, 29, .96));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .18);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card.featured { border-color: rgba(0, 221, 255, .48); }
+    .product-image {
+      aspect-ratio: 4 / 3;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(0, 221, 255, .10), rgba(255, 22, 143, .10)),
+        #fff;
+      display: grid;
+      place-items: center;
+    }
+    .product-image img { width: 100%; height: 100%; object-fit: contain; }
+    .product-card.featured .product-image { padding: 0; }
+    .product-card.featured .product-image img { object-fit: cover; }
+
+    .placeholder {
+      aspect-ratio: 4 / 3;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(0, 221, 255, .12), rgba(255, 22, 143, .12));
+      color: rgba(246, 247, 255, .55);
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .product-content { padding: 26px; display: flex; flex: 1; flex-direction: column; }
+    .badge {
+      align-self: flex-start;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(0, 221, 255, .10);
+      border: 1px solid rgba(0, 221, 255, .24);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 { margin: 0 0 10px; font-size: 1.55rem; }
+    .description { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
+    .product-footer { margin-top: auto; }
+    .price { margin-bottom: 15px; font-size: 1.35rem; font-weight: 900; }
+    .shipping { margin: -7px 0 18px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+    .product-details { margin: 0 0 25px; padding-left: 20px; color: var(--muted); line-height: 1.65; }
+    .product-details li + li { margin-top: 4px; }
+    .product-note { margin: 18px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+
+    .button {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 900;
+      background: rgba(255, 255, 255, .03);
+      cursor: default;
+    }
+    .button-buy { border-color: var(--cyan); background: var(--cyan); color: #061020; cursor: pointer; }
+    .button-buy:hover, .button-buy:focus-visible { background: #7cefff; border-color: #7cefff; }
+
+    .notice {
+      margin-bottom: 90px;
+      padding: 26px;
+      border-left: 3px solid var(--pink);
+      background: rgba(255, 22, 143, .07);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    footer {
+      width: min(1180px, 88vw);
+      margin: 0 auto;
+      padding: 32px 0 45px;
+      border-top: 1px solid rgba(175, 187, 226, .18);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .legal-links a:hover { color: var(--cyan); }
+
+
+    .order-info {
+      margin: -50px 0 90px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(16, 25, 53, .55);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .order-info h2 { color: var(--text); }
+    .order-info a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .products { grid-template-columns: 1fr 1fr; }
+      .navigation { gap: 15px; }
+    }
+
+    @media (max-width: 640px) {
+      .site-header { padding: 18px 6vw; align-items: flex-start; flex-direction: column; }
+      .navigation { width: 100%; justify-content: space-between; }
+      .hero { padding-top: 64px; }
+      .products { grid-template-columns: 1fr; }
+    }
+
+    .shop-categories { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin: 0 0 52px; }
+    .category-link { display:flex; flex-direction:column; gap:10px; padding:26px; border:1px solid var(--line); border-radius:22px; background:var(--surface-strong); }
+    .category-link:hover,.category-link:focus-visible { border-color:var(--cyan); }
+    .category-link strong { font-size:1.3rem; }
+    .category-link span { color:var(--muted); line-height:1.5; }
+    .category-link .category-action { color:var(--cyan); font-weight:800; }
+    .shop-section-heading { margin:0 0 23px; scroll-margin-top:100px; }
+    .shop-section-heading h2 { font-size:2rem; }
+    .shop-section-heading p { color:var(--muted); }
+    @media (max-width:640px) { .shop-categories { grid-template-columns:1fr; } }
+    /* Monster Finanzmanager – Vorankündigung */
+    .finance-launch { margin: 0 0 76px; padding: 34px; border: 1px solid rgba(0,221,255,.42); border-radius: 26px; background: linear-gradient(135deg, rgba(0,221,255,.09), rgba(16,25,53,.96) 45%, rgba(255,22,143,.06)); }
+    .finance-top { display: flex; gap: 26px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .finance-intro { max-width: 710px; }
+    .finance-launch h2 { font-size: clamp(1.8rem,4vw,2.65rem); margin: 12px 0; }
+    .finance-launch p { color: var(--muted); line-height: 1.7; }
+    .finance-mark { width: 130px; height: 130px; border: 2px solid rgba(0,221,255,.4); border-radius: 28px; display: grid; place-items: center; font-size: 5rem; font-weight: 950; color: var(--cyan); background: #080f27; box-shadow: 0 0 35px rgba(0,221,255,.13); }
+    .finance-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .finance-editions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 26px; }
+    .finance-edition { padding: 23px; border: 1px solid var(--line); border-radius: 18px; background: rgba(5,8,20,.52); }
+    .finance-edition h3 { font-size: 1.3rem; margin: 0 0 8px; }
+    .finance-edition .finance-price { font-size: 1.8rem; font-weight: 900; color: #fff; }
+    .finance-edition .finance-price small { font-size: .85rem; font-weight: 500; color: var(--muted); }
+    .finance-edition ul { padding-left: 20px; color: var(--muted); line-height: 1.8; }
+    .finance-edition.pro { border-color: rgba(0,221,255,.35); }
+    .finance-coming { display: block; margin-top: 18px; padding: 13px; text-align: center; border-radius: 999px; border: 1px solid rgba(0,221,255,.3); color: var(--cyan); font-weight: 800; background: rgba(0,221,255,.07); }
+    .finance-detail-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; padding:15px 26px; background:var(--cyan); color:#061020; font-weight:900; border-radius:999px; text-decoration:none; transition:transform .2s,background .2s; }
+    .finance-detail-link:hover,.finance-detail-link:focus-visible { background:#8cf2ff; transform:translateY(-2px); }
+    .finance-disclaimer { font-size: .85rem; margin-bottom: 0; }
+    @media (max-width: 640px) { .finance-launch { padding: 22px; } .finance-editions { grid-template-columns: 1fr; } .finance-mark { width: 95px; height: 95px; font-size: 3.5rem; } }
+  
+    .back-shop{display:inline-flex;color:var(--cyan);font-weight:800;margin-bottom:25px}
+    .back-shop:hover{text-decoration:underline}
+    .shop-categories{margin-bottom:80px}
+    .category-link{min-height:215px;justify-content:center;transition:transform .2s,border-color .2s}
+    .category-link:hover{transform:translateY(-4px)}
+    .shop-hero-small{padding:75px 0 45px}
+    .shop-hero-small h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.05}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+   <a href="index.html"
+   aria-label="Zur TheMonsterz Startseite"
+   style="position:relative; display:block; width:120px; height:54px; overflow:hidden; flex-shrink:0;">
+
+  <img src="themonsterz-header-logo.png"
+       alt="TheMonsterz"
+       style="position:absolute; top:50%; left:0; width:120px; height:auto; max-width:none; transform:translateY(-50%);">
+</a>
+    <nav class="navigation" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="shop.html">Shop</a>
+      <a href="unterstuetzen.html">Unterstützen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shop-hero-small"><a class="back-shop" href="shop.html">← Zur Shop-Übersicht</a><p class="eyebrow">Merchandise &amp; Versand</p><h1>Physische<br>Produkte.</h1><p class="intro">Artikel zum Anfassen: Tassen, Accessoires und weitere TheMonsterz-Produkte.</p></section>
+    <section class="products" aria-label="Physische Produkte">
+      <article class="product-card featured">
+        <div class="product-image">
+          <img src="THE%20MONSTERZ%20Kaffeebecher%20im%20Musikstudio.png" alt="TheMonsterz Panoramatasse im Musikstudio">
+        </div>
+        <div class="product-content">
+          <span class="badge">Neu</span>
+          <h2>TheMonsterz Panoramatasse</h2>
+          <p class="description">Dein Sound. Dein Style. Die TheMonsterz Panoramatasse bringt das markante Design als großflächigen Rundumdruck auf deinen Kaffee- oder Teebecher – zu Hause, im Büro oder im Musikstudio.</p>
+          <ul class="product-details">
+            <li>Hochwertige Keramik, Höhe ca. 9,5 cm</li>
+            <li>Umlaufender Panoramadruck mit TheMonsterz-Motiv</li>
+            <li>Spülmaschinengeeignet</li>
+          </ul>
+          <div class="product-footer">
+            <div class="price">21,90 €</div>
+            <p class="shipping">Zzgl. 4,90 € Versand pro Bestellung. Eine Tasse: 26,80 € gesamt.<br>Lieferzeit: 3–10 Tage.</p>
+            <a class="button button-buy" href="https://www.paypal.com/ncp/payment/9V9JFUZXAWFSJ" target="_blank" rel="noopener noreferrer">Weiter zu PayPal</a>
+            <p class="product-note">Die Produktbilder sind digitale Vorschauen. Farben und Druckposition können beim fertigen Artikel geringfügig abweichen.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="placeholder" aria-hidden="true">TM</div>
+        <div class="product-content">
+          <span class="badge">In Vorbereitung</span>
+          <h2>Armbänder</h2>
+          <p class="description">Armbänder und kleine Accessoires im Stil von TheMonsterz sind bereits geplant.</p>
+          <div class="product-footer">
+            <div class="price">Preis folgt</div>
+            <span class="button" aria-disabled="true">Bald erhältlich</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="placeholder" aria-hidden="true">+</div>
+        <div class="product-content">
+          <span class="badge">Weitere Artikel</span>
+          <h2>Mehr Monsterz</h2>
+          <p class="description">Sticker, Schlüsselanhänger und weitere Merchandise-Ideen können hier später ergänzt werden.</p>
+          <div class="product-footer">
+            <div class="price">Demnächst mehr</div>
+            <span class="button" aria-disabled="true">In Planung</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <aside class="notice">Weitere Merchandise-Artikel befinden sich in Vorbereitung.</aside>
+  </main>
+  <footer>
+    <span>© 2026 TheMonsterz · monsterdigitalsolutions.de</span>
+    <div class="legal-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerruf</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+</body>
+</html>
