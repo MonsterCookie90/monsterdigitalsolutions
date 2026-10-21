@@ -241,6 +241,8 @@
     .finance-edition ul { padding-left: 20px; color: var(--muted); line-height: 1.8; }
     .finance-edition.pro { border-color: rgba(0,221,255,.35); }
     .finance-coming { display: block; margin-top: 18px; padding: 13px; text-align: center; border-radius: 999px; border: 1px solid rgba(0,221,255,.3); color: var(--cyan); font-weight: 800; background: rgba(0,221,255,.07); }
+    .finance-detail-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; padding:15px 26px; background:var(--cyan); color:#061020; font-weight:900; border-radius:999px; text-decoration:none; transition:transform .2s,background .2s; }
+    .finance-detail-link:hover,.finance-detail-link:focus-visible { background:#8cf2ff; transform:translateY(-2px); }
     .finance-disclaimer { font-size: .85rem; margin-bottom: 0; }
     @media (max-width: 640px) { .finance-launch { padding: 22px; } .finance-editions { grid-template-columns: 1fr; } .finance-mark { width: 95px; height: 95px; font-size: 3.5rem; } }
   </style>
@@ -282,7 +284,7 @@
         <div class="finance-intro">
           <span class="badge">Software-Neuheit · Demnächst erhältlich</span>
           <p class="eyebrow">Monster Digital Solutions präsentiert</p>
-          <h2 id="finance-heading">Monster Finanzmanager</h2>
+          <h2 id="finance-heading"><a href="finanzmanager.html" title="Alle Funktionen des Monster Finanzmanagers entdecken">Monster Finanzmanager ↗</a></h2>
           <p>Deine Finanzen. Deine Kontrolle. Deine Daten. Verwalte Einnahmen, Ausgaben, Fixkosten und Budgets übersichtlich in einer Windows-Anwendung – ohne verpflichtende Bankverknüpfung und mit lokaler Datenspeicherung.</p>
         </div>
         <div class="finance-mark"><img src="monster-digital-solutions-logo.png" alt="Monster Digital Solutions Logo" width="130" height="130"></div>
@@ -312,6 +314,7 @@
           <span class="finance-coming">Noch nicht bestellbar</span>
         </article>
       </div>
+      <a class="finance-detail-link" href="finanzmanager.html">Alle Funktionen entdecken &amp; Versionen vergleichen →</a>
       <p class="finance-disclaimer">Für Windows · Geplante Lizenzlaufzeit: 12 Monate, für bis zu 2 PCs, ohne automatische Verlängerung. Die Software befindet sich derzeit in der Beta-Testphase. Funktionsumfang und Veröffentlichungstermin können sich noch ändern. Kein Download und keine Bestellung möglich.</p>
     </section>
 
