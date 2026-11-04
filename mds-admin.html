@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>MDS – Interne Kundenverwaltung</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color-scheme:dark;background:#050814;color:#f6f7ff}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#10304a,transparent 40rem),#050814;min-height:100vh}
+    header{border-bottom:1px solid #293553;padding:22px max(5vw,16px);display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    header strong{letter-spacing:.06em;font-size:1.15rem}header strong span{color:#00ddff}a{color:#00ddff}main{width:min(900px,94vw);margin:50px auto}
+    .panel{background:#101935;border:1px solid #2a3b5b;border-radius:20px;padding:30px;margin-bottom:25px;box-shadow:0 15px 60px #0003}
+    .eyebrow{color:#00ddff;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(1.8rem,4vw,2.7rem);margin:9px 0 15px}p{color:#bac7e3;line-height:1.6}
+    label{display:block;margin:18px 0 7px;font-weight:700}input{width:100%;background:#080e20;border:1px solid #526487;border-radius:10px;padding:13px 15px;color:#fff;font:inherit}
+    button{background:#00ddff;border:0;border-radius:999px;color:#05101c;font-weight:850;padding:13px 20px;font:inherit;cursor:pointer}
+    button:disabled{cursor:wait;opacity:.55}.secondary{background:transparent;border:1px solid #8194b6;color:#f6f7ff}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0}
+    .result{padding:13px 16px;border:1px solid #334361;border-radius:10px;min-height:22px;overflow-wrap:anywhere}
+    .result.error{color:#ffc0c0;border-color:#b45757} .muted{font-size:.9rem} [hidden]{display:none!important}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
+    .stat{background:#0b132a;border:1px solid #293b59;border-radius:12px;padding:15px}.stat b{display:block;font-size:1.25rem;margin-top:5px}
+    :focus-visible{outline:3px solid #00ddff;outline-offset:3px}
+  </style>
+  <script src="mds-admin-config.js"></script>
+</head>
+<body>
+  <header><strong>MONSTER <span>DIGITAL SOLUTIONS</span></strong><a href="index.html">Zur Website</a></header>
+  <main>
+    <div class="eyebrow">Nur für Unternehmensadministratoren</div>
+    <h1>Kunden- und Lizenzverwaltung</h1>
+    <p>Geschützter Download deiner aktuellen Bestellungen. Jede abgeschlossene Zahlung erhält eine eigene Zeile mit Datum, sekundengenauer Uhrzeit, Lizenzstatus und – sofern vorhanden – vollständigem Lizenzschlüssel.</p>
+    <section class="panel" id="login-panel">
+      <h2>Administrator-Anmeldung</h2>
+      <p class="muted">Du meldest dich mit einem zuvor in Supabase Auth eingerichteten Benutzerkonto an. Ohne serverseitige Freigabe gibt es keinen Datenzugriff.</p>
+      <form id="login-form">
+        <label for="email">E-Mail-Adresse</label><input id="email" type="email" autocomplete="username" required>
+        <label for="password">Passwort</label><input id="password" type="password" autocomplete="current-password" required>
+        <div class="actions"><button id="login-button" type="submit">Anmelden</button></div>
+      </form>
+    </section>
+    <section class="panel" id="admin-panel" hidden>
+      <h2>Bestellungen exportieren</h2>
+      <p id="signed-in" class="muted"></p>
+      <div class="stats"><div class="stat">Datenquelle<b>Supabase</b></div><div class="stat">Dateiformat<b>Excel (.xlsx)</b></div><div class="stat">Kaufzeit<b>Europe/Berlin</b></div></div>
+      <p>Der Download wird bei jedem Klick neu erstellt. Es wird keine öffentliche Excel-Datei auf GitHub gespeichert.</p>
+      <div class="actions">
+        <button id="export-button" type="button">Aktuelle Kundenliste herunterladen</button>
+        <button id="logout-button" class="secondary" type="button">Abmelden</button>
+      </div>
+      <p class="muted"><strong>Achtung:</strong> Die heruntergeladene Excel-Datei enthält personenbezogene Daten und vollständige Lizenzschlüssel. Nur auf einem geschützten PC speichern, nicht öffentlich hochladen.</p>
+    </section>
+    <div id="message" class="result" role="status" aria-live="polite">Bereit.</div>
+  </main>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.10';
+    const cfg=window.MDS_ADMIN_CONFIG;
+    const msg=document.getElementById('message');
+    const login=document.getElementById('login-panel');
+    const admin=document.getElementById('admin-panel');
+    const form=document.getElementById('login-form');
+    const exportButton=document.getElementById('export-button');
+    const loginButton=document.getElementById('login-button');
+    function notice(message,isError=false){msg.textContent=message;msg.classList.toggle('error',isError)}
+    if(!cfg?.supabaseUrl || !/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(cfg.supabaseUrl) ||
+       !cfg?.publishableKey || cfg.publishableKey.includes('EINTRAGEN')){
+      form.querySelectorAll('input,button').forEach(el=>el.disabled=true);
+      notice('Einrichtung ausstehend: Supabase-Publishable/Anon-Key in mds-admin-config.js eintragen.',true);
+    }else{
+      const sb=createClient(cfg.supabaseUrl,cfg.publishableKey,{auth:{persistSession:false,autoRefreshToken:true,detectSessionInUrl:false}});
+      function showSession(session){const signedIn=!!session?.access_token;login.hidden=signedIn;admin.hidden=!signedIn;
+        document.getElementById('signed-in').textContent=signedIn?`Angemeldet: ${session.user?.email||'Administrator'}`:'';}
+      showSession(null);
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();loginButton.disabled=true;notice('Anmeldung wird geprüft …');
+        try{const {data,error}=await sb.auth.signInWithPassword({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});
+          if(error)throw error;document.getElementById('password').value='';showSession(data.session);notice('Angemeldet. Der Export wird serverseitig zusätzlich geprüft.');
+        }catch(_){notice('Anmeldung fehlgeschlagen. E-Mail und Passwort prüfen.',true)}finally{loginButton.disabled=false;}
+      });
+      document.getElementById('logout-button').addEventListener('click',async()=>{await sb.auth.signOut();showSession(null);notice('Abgemeldet.');});
+      exportButton.addEventListener('click',async()=>{
+        exportButton.disabled=true;notice('Excel-Datei wird erstellt …');
+        try{const {data:{session},error:sErr}=await sb.auth.getSession();if(sErr||!session?.access_token)throw Error('Bitte erneut anmelden.');
+          const r=await fetch(`${cfg.supabaseUrl}/functions/v1/mds-admin-export`,{method:'POST',headers:{
+            'Authorization':`Bearer ${session.access_token}`,'apikey':cfg.publishableKey,'Content-Type':'application/json'},
+            body:JSON.stringify({format:'xlsx'}),cache:'no-store'});
+          if(!r.ok){let message='Export fehlgeschlagen.';try{const j=await r.json();if(j.error)message=j.error}catch{}throw Error(message)}
+          const blob=await r.blob();if(!blob.size || blob.size>35_000_000)throw Error('Unerwartete Exportgröße.');
+          const stamp=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Berlin'});
+          const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`MDS_Kunden_Lizenzen_${stamp}.xlsx`;
+          document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+          notice('Excel-Download wurde gestartet. Bitte Datei sicher aufbewahren.');
+        }catch(e){notice(e instanceof Error?e.message:'Download fehlgeschlagen.',true)}finally{exportButton.disabled=false;}
+      });
+    }
+  </script>
+</body>
+</html>
