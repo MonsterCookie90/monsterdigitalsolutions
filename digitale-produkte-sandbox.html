@@ -333,6 +333,14 @@
           <input id="sandbox-last" name="customer_last_name" value="Mustermann" maxlength="100" required autocomplete="family-name">
           <label for="sandbox-email">E-Mail-Adresse</label>
           <input id="sandbox-email" name="customer_email" type="email" value="kontakt@monsterdigitalsolutions.de" required autocomplete="email">
+          <label for="sandbox-street">Straße und Hausnummer (Rechnungsanschrift)</label>
+          <input id="sandbox-street" name="customer_street" maxlength="180" required autocomplete="street-address" placeholder="Musterstraße 12">
+          <label for="sandbox-postal">Postleitzahl</label>
+          <input id="sandbox-postal" name="customer_postal_code" maxlength="20" required autocomplete="postal-code" placeholder="12345">
+          <label for="sandbox-city">Ort</label>
+          <input id="sandbox-city" name="customer_city" maxlength="100" required autocomplete="address-level2" placeholder="Musterstadt">
+          <label for="sandbox-country">Land</label>
+          <input id="sandbox-country" name="customer_country" maxlength="100" required autocomplete="country-name" value="Deutschland">
           <label for="sandbox-discount">Rabattcode (optional)</label>
           <input id="sandbox-discount" name="discount_code" value="TEST20" maxlength="100">
           <p id="sandbox-selection" aria-live="polite"></p>
