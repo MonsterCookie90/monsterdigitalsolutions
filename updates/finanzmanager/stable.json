@@ -1,4 +1,4 @@
 {
-  "payload": "{\"product\":\"monster-finanzmanager\",\"channel\":\"stable\",\"version\":\"1.0.1\",\"url\":\"https://www.monsterdigitalsolutions.de/downloads/MonsterFinanzmanager_Setup_1.0.1.exe\",\"sha256\":\"718696e0aadca709f606d0c3b53e6f56648032ad3cc3f1327d9bafb5599a6b8e\",\"notes\":\"Version 1.0.1: Lizenzschlüsselprüfung für neue Formate erweitert.\"}",
-  "signature": "UaG7D/vyoWocTDxULXkG5Ty2dhdpO6UtiKda92menWPVcp+V/MFWS9dmEe90IuC3Sy3Beu0M18h3MoAFfJE0Bw=="
+  "payload": "{\"product\":\"monster-finanzmanager\",\"channel\":\"stable\",\"version\":\"1.0.2\",\"url\":\"https://www.monsterdigitalsolutions.de/downloads/MonsterFinanzmanager_Setup_1.0.2.exe\",\"sha256\":\"55294760eba1c094c630bfe9845b922b38aa613419998e56949c2c3fc1fc7fe1\",\"notes\":\"Version 1.0.2: Zuverlässigere Pro-Aktivierung: Gerätetoken wird nach Serverbestätigung sofort gespeichert.\"}",
+  "signature": "u2c+ij9j+sQ2dHr3BBm15Xo4NZQ/FfPN6sCm0QUJiMlY4evJlru55tL7fp38advU7QM/dbf/yKxpR1dNFwvLAA=="
 }
