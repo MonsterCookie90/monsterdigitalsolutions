@@ -241,6 +241,14 @@
     .finance-edition ul { padding-left: 20px; color: var(--muted); line-height: 1.8; }
     .finance-edition.pro { border-color: rgba(0,221,255,.35); }
     .finance-coming { display: block; margin-top: 18px; padding: 13px; text-align: center; border-radius: 999px; border: 1px solid rgba(0,221,255,.3); color: var(--cyan); font-weight: 800; background: rgba(0,221,255,.07); }
+    .live-buy[hidden], .live-panel[hidden] { display:none !important; }
+    .live-buy { width:100%; font:inherit; cursor:pointer; }
+    .live-panel { margin-top:24px; padding:25px; border:1px solid var(--cyan); border-radius:18px; background:#090f22; }
+    .live-panel label { display:block; margin:14px 0 6px; font-weight:700; }
+    .live-panel input { width:100%; padding:13px; color:white; background:#111b35; border:1px solid #526181; border-radius:10px; font:inherit; }
+    .live-panel button { padding:14px 22px; margin-top:20px; background:var(--cyan); color:#061020; border:0; border-radius:999px; font-weight:900; cursor:pointer; }
+    .live-panel button:disabled { opacity:.5; cursor:wait; }
+    .live-error { color:#ff9ca7; }
     .finance-detail-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; padding:15px 26px; background:var(--cyan); color:#061020; font-weight:900; border-radius:999px; text-decoration:none; transition:transform .2s,background .2s; }
     .finance-detail-link:hover,.finance-detail-link:focus-visible { background:#8cf2ff; transform:translateY(-2px); }
     .finance-disclaimer { font-size: .85rem; margin-bottom: 0; }
@@ -294,7 +302,7 @@
             <li>Dashboard und Auswertungen</li>
             <li>Lokale Datenspeicherung</li>
           </ul>
-          <span class="finance-coming">Noch nicht bestellbar</span>
+          <span class="finance-coming">Noch nicht bestellbar</span><button type="button" class="finance-coming live-buy" hidden data-product="finanzmanager_pro">Interner Live-Testkauf Pro</button><button type="button" class="finance-coming live-buy" hidden data-product="finanzmanager_standard">Interner Live-Testkauf Standard</button>
         </article>
         <article class="finance-edition pro">
           <h3>Pro</h3>
@@ -309,6 +317,23 @@
           <span class="finance-coming">Noch nicht bestellbar</span>
         </article>
       </div>
+      <section id="live-checkout" class="live-panel" hidden aria-labelledby="live-title">
+        <h3 id="live-title">PayPal-Live-Test – echtes Geld</h3>
+        <p>Nur für den kontrollierten Test. Keine öffentliche Verkaufsfreigabe. Die Zahlungsabbuchung bleibt zunächst serverseitig gesperrt. Bitte echte Rechnungsdaten eingeben.</p>
+        <form id="live-form">
+          <input type="hidden" name="product_id" id="live-product">
+          <label for="live-first">Vorname</label><input id="live-first" name="customer_first_name" maxlength="100" required autocomplete="given-name">
+          <label for="live-last">Nachname</label><input id="live-last" name="customer_last_name" maxlength="100" required autocomplete="family-name">
+          <label for="live-email">E-Mail-Adresse</label><input id="live-email" name="customer_email" type="email" maxlength="254" required autocomplete="email">
+          <label for="live-street">Straße und Hausnummer</label><input id="live-street" name="customer_street" maxlength="180" required autocomplete="street-address">
+          <label for="live-postal">Postleitzahl</label><input id="live-postal" name="customer_postal_code" maxlength="20" required autocomplete="postal-code">
+          <label for="live-city">Ort</label><input id="live-city" name="customer_city" maxlength="100" required autocomplete="address-level2">
+          <label for="live-country">Land</label><input id="live-country" name="customer_country" maxlength="100" required value="Deutschland" autocomplete="country-name">
+          <p id="live-selection" aria-live="polite"></p>
+          <button id="live-submit" type="submit">PayPal-Live-Bestellung vorbereiten</button>
+          <p id="live-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
       <a class="finance-detail-link" href="finanzmanager.html">Alle Funktionen entdecken &amp; Versionen vergleichen →</a>
       <p class="finance-disclaimer">Für Windows · Geplante Lizenzlaufzeit: 12 Monate, für bis zu 2 PCs, ohne automatische Verlängerung. Die Software befindet sich derzeit in der Beta-Testphase. Funktionsumfang und Veröffentlichungstermin können sich noch ändern. Kein Download und keine Bestellung möglich.</p>
     </section>
@@ -324,5 +349,56 @@
       <a href="datenschutz.html">Datenschutz</a>
     </div>
   </footer>
+  <script>
+  (() => {
+    // Nur ein sichtbarer Testmodus, KEIN Zugriffsschutz.
+    // PAYPAL_LIVE_CAPTURE_ENABLED muss serverseitig false bleiben.
+    if (new URLSearchParams(location.search).get('live_test') !== '1') return;
+    const panel = document.getElementById('live-checkout');
+    const form = document.getElementById('live-form');
+    const feedback = document.getElementById('live-feedback');
+    const selection = document.getElementById('live-selection');
+    const submit = document.getElementById('live-submit');
+    const productField = document.getElementById('live-product');
+    const endpoint = 'https://dqnavxhuotpzvsytlbtz.supabase.co/functions/v1/paypal-create-order-live';
+    document.querySelectorAll('.live-buy').forEach(button => {
+      button.hidden = false;
+      button.addEventListener('click', () => {
+        productField.value = button.dataset.product;
+        selection.textContent = productField.value === 'finanzmanager_pro' ? 'Pro – 59,99 €' : 'Standard – 35,99 €';
+        feedback.textContent = '';
+        panel.hidden = false;
+        panel.scrollIntoView({behavior:'smooth',block:'center'});
+      });
+    });
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!productField.value || !form.reportValidity()) return;
+      submit.disabled = true;
+      feedback.className = '';
+      feedback.textContent = 'PayPal-Live-Bestellung wird vorbereitet …';
+      try {
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch(endpoint, {
+          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok || !data.success || (data.environment && data.environment !== 'live') || !data.approval_url) {
+          throw new Error(data.error || 'Live-Bestellung konnte nicht erstellt werden.');
+        }
+        const url = new URL(data.approval_url);
+        if (url.protocol !== 'https:' || !['www.paypal.com','paypal.com'].includes(url.hostname)) {
+          throw new Error('Unerwartete PayPal-Adresse.');
+        }
+        feedback.textContent = 'Weiterleitung zu PayPal. Zahlung noch nicht bestätigen.';
+        location.assign(url.href);
+      } catch(error) {
+        feedback.textContent = error instanceof Error ? error.message : 'Unbekannter Fehler';
+        feedback.className = 'live-error';
+        submit.disabled = false;
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
