@@ -1,0 +1,4 @@
+{
+  "payload": "{\"product\":\"monster-finanzmanager\",\"channel\":\"stable\",\"version\":\"1.0.1\",\"url\":\"https://www.monsterdigitalsolutions.de/downloads/MonsterFinanzmanager_Setup_1.0.1.exe\",\"sha256\":\"718696e0aadca709f606d0c3b53e6f56648032ad3cc3f1327d9bafb5599a6b8e\",\"notes\":\"Version 1.0.1: Lizenzschlüsselprüfung für neue Formate erweitert.\"}",
+  "signature": "UaG7D/vyoWocTDxULXkG5Ty2dhdpO6UtiKda92menWPVcp+V/MFWS9dmEe90IuC3Sy3Beu0M18h3MoAFfJE0Bw=="
+}
