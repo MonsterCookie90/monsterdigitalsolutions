@@ -28,3 +28,15 @@ WICHTIG
 - Spotify wird auf bestehenden HTML-Seiten zusätzlich manuell mit data-usercentrics="Spotify" gekennzeichnet. Der Dienstname muss in Usercentrics GENAU so angelegt sein.
 - Die finale rechtliche und browserseitige Prüfung bleibt erforderlich.
 - Ein abgesichertes Kundencenter-Backend ist NICHT enthalten und NICHT aktiviert.
+
+KORREKTUR NAVIGATION (08.11.2026)
+- datenschutz.html enthält jetzt eine obere Navigation, Zurück-zur-Startseite-Schaltfläche und die vollständige Fußzeile (Impressum, Datenschutz, AGB, Widerruf, Kontakt, Ideen & Feedback).
+- Das Kundencenter ist unter kundencenter.html als gesperrte Hinweisseite vorgesehen; Login und Registrierung sind noch nicht implementiert.
+
+KORREKTUR KUNDENCENTER / MILO (08.11.2026)
+- Hauptnavigation zeigt nach „Kontakt“ den Eintrag „Kundencenter“.
+- Kundencenter hat zwei sichtbare, deaktivierte Buttons: „Anmelden“ und „Kostenlos registrieren“.
+- Es gibt keinen funktionierenden Login und keine Registrierung; keine Kundendaten werden verarbeitet.
+- MILO-Chatfenster auf maximal 290 px verschmälert und weiter nach rechts gesetzt.
+- Installer passt mds-navigation.js und mds-extra.css mit Backup an; Zahlungs- und Lizenzfunktionen bleiben unangetastet.
+- Vor Veröffentlichung zusätzlich Navigation auf Mobilgeräten und MILO bei verschiedenen Bildschirmbreiten prüfen.

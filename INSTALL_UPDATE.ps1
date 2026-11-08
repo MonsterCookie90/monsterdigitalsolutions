@@ -66,6 +66,47 @@ if(Test-Path -LiteralPath $web){
   if($c -notmatch 'href="mds-update.css"'){ $c=[regex]::Replace($c,'(?i)</head>','<link rel="stylesheet" href="mds-update.css">' + "`r`n</head>",1) }
   WriteUtf8 $web $c
 }
+# Navigationspunkt Kundencenter direkt nach Kontakt hinzufügen (vor Anfrage stellen).
+# Die vorhandene globale Navigation bleibt sonst unverändert.
+$navPath=Join-Path $site 'mds-navigation.js'
+if(Test-Path -LiteralPath $navPath){
+  BackupOne 'mds-navigation.js'
+  $nav=ReadUtf8 $navPath
+  if($nav -notmatch "\['kundencenter.html','Kundencenter'\]"){
+    $old="['kontakt.html','Kontakt']"
+    $new="['kontakt.html','Kontakt'],['kundencenter.html','Kundencenter']"
+    if(-not $nav.Contains($old)){throw 'Navigation: erwartete Kontakt-Position nicht gefunden. Bitte manuell prüfen.'}
+    $nav=$nav.Replace($old,$new)
+    WriteUtf8 $navPath $nav
+  }
+}
+# MILO schmaler und am rechten Rand – eigener CSS-Anhang statt Änderung der Logik.
+$miloCss=Join-Path $site 'mds-extra.css'
+if(Test-Path -LiteralPath $miloCss){
+  BackupOne 'mds-extra.css'
+  $css=ReadUtf8 $miloCss
+  $start='/* MDS-MILO-NARROW-START */'
+  $end='/* MDS-MILO-NARROW-END */'
+  $pos=$css.IndexOf($start)
+  if($pos -ge 0){$endPos=$css.IndexOf($end,$pos);if($endPos -ge 0){$css=$css.Remove($pos,$endPos+$end.Length-$pos)}}
+  $overrides=@'
+/* MDS-MILO-NARROW-START */
+/* Kompakter, rechtsbündiger MILO-Chat; Eingabefeld bleibt benutzbar. */
+.mds-milo,.mds-milo.open{right:8px!important}
+.mds-milo-panel{width:min(290px,calc(100vw - 16px))!important}
+.mds-milo-messages{padding:10px!important}
+.mds-milo-msg{padding:9px!important;font-size:13px}
+.mds-milo-form{padding:7px!important}
+.mds-milo-form input{padding:9px!important;font-size:12px!important}
+.mds-milo-form button{padding:9px!important}
+@media (min-width:1500px){body:has(.mds-milo.open) .wrap{max-width:calc(100vw - 355px)}}
+@media (max-width:700px){.mds-milo,.mds-milo.open{right:6px!important}.mds-milo-panel{width:min(290px,calc(100vw - 12px))!important}}
+/* MDS-MILO-NARROW-END */
+'@
+  $css=$css.TrimEnd()+"`r`n"+$overrides
+  WriteUtf8 $miloCss $css
+}
+
 Write-Host 'Update-Dateien vorbereitet. Datenschutzerklärung vom 08.11.2026 inklusive MILO eingebaut.' -ForegroundColor Green
 Write-Host "Backup: $backup" -ForegroundColor Cyan
 Write-Host 'Vor einer Veröffentlichung: Spotify-Einwilligung, CMP, Links, Webdesign-Formular, PayPal und Lizenzen testen.' -ForegroundColor Yellow
