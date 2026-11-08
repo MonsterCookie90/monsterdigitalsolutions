@@ -19,6 +19,7 @@
 .contact-form button{cursor:pointer}.contact-form fieldset{border:1px solid #35516e;border-radius:12px;padding:16px;margin:0;display:grid;gap:14px}.contact-form legend{padding:0 8px;font-weight:700;color:#64d7ff}.contact-form .conditional[hidden]{display:none}.contact-form .section-note{font-size:.88rem;color:#b8cce2;margin:0}.contact-form .optional{font-size:.82rem;color:#b8cce2;font-weight:400}.contact-status{margin-top:12px;color:#d9efff}
 @media(max-width:780px){.contact-layout{grid-template-columns:1fr}.contact-form .two-fields{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="mds-navigation.css">
 </head>
 <body><div id="app"></div><script src="app.js"></script>
 <script>
@@ -72,4 +73,5 @@
     window.location.href='mailto:'+recipient+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   });
 })();
-</script></body></html>
+</script><script src="mds-navigation.js"></script>
+</body></html>

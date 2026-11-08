@@ -1,0 +1,15 @@
+/* Einheitliche Kopfzeile – auf allen öffentlichen Seiten */
+.mds-global-nav,.mds-global-nav *{box-sizing:border-box}
+.mds-global-nav{position:sticky;top:0;z-index:9999;width:100%;background:rgba(1,8,19,.96);border-bottom:1px solid #174c72;backdrop-filter:blur(16px);font:16px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;color:#f4f9ff}
+.mds-global-nav .mds-nav-inner{width:min(1240px,94%);min-height:78px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.mds-global-nav a{text-decoration:none;color:inherit}
+.mds-global-nav .mds-nav-brand{display:flex;align-items:center;flex-shrink:0}
+.mds-global-nav .mds-nav-brand img{display:block;width:155px;height:54px;object-fit:contain}
+.mds-global-nav .mds-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:clamp(10px,1.4vw,23px);flex-wrap:nowrap}
+.mds-global-nav .mds-nav-links>a:not(.mds-nav-cta){white-space:nowrap;font-size:15px}
+.mds-global-nav .mds-nav-links>a:hover,.mds-global-nav .mds-nav-links>a.active{color:#00bfff}
+.mds-global-nav .mds-nav-cta{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid #23c9ff;border-radius:9px;padding:12px 15px;font-size:15px;font-weight:700;background:linear-gradient(110deg,#0062c9,#00a8ff);color:white}
+.mds-global-nav .mds-nav-cta:hover{filter:brightness(1.13)}
+.mds-global-nav .mds-nav-toggle{display:none;background:transparent;border:1px solid #235c81;color:white;border-radius:8px;padding:8px 12px;font-size:22px;cursor:pointer}
+.mds-global-nav a:focus-visible,.mds-global-nav button:focus-visible{outline:2px solid #00bfff;outline-offset:3px}
+@media(max-width:1080px){.mds-global-nav .mds-nav-toggle{display:block}.mds-global-nav .mds-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#03101f;border-bottom:1px solid #174c72;padding:15px 5vw 24px;flex-direction:column;align-items:stretch;gap:0;box-shadow:0 12px 24px #0009}.mds-global-nav .mds-nav-links.mds-open{display:flex}.mds-global-nav .mds-nav-links>a{padding:11px 8px}.mds-global-nav .mds-nav-cta{margin-top:10px}}

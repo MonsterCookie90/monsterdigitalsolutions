@@ -10,6 +10,7 @@
 
 .quote-form{margin-top:30px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:18px}.quote-form .full{grid-column:1/-1}.quote-form label{display:block;font-weight:650;margin-bottom:6px;color:#e7f5ff}.quote-form input,.quote-form select,.quote-form textarea{width:100%;border:1px solid #39718f;background:#061827;border-radius:9px;color:#fff;padding:12px 14px;font:inherit}.quote-form textarea{min-height:115px;resize:vertical}.quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{outline:2px solid #43cfff;outline-offset:2px}.quote-form .check{display:flex;gap:12px;align-items:flex-start}.quote-form .check input{width:auto;margin-top:6px}.quote-form .check label{font-weight:400;margin:0}.quote-form .hint{font-size:13px;color:#b8d0df;margin-top:5px}.quote-form button{justify-self:start}.quote-form a{text-decoration:underline;color:#75ddff}@media(max-width:650px){.quote-form{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="mds-navigation.css">
 </head>
 <body>
 <header class="top"><div class="wrap nav"><a class="brand" href="index.html" aria-label="Monster Digital Solutions – zur Startseite"><img src="assets/logo-reference.png" alt="Monster Digital Solutions" width="155" height="54"></a><button class="menu-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="main-links">☰</button><nav class="links" id="main-links" aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a href="webdesign.html" aria-current="page">Webdesign</a><a href="digitale-produkte.html">Software</a><a href="partner.html">Partnerprogramm</a><a href="kontakt.html">Kontakt</a></nav></div></header>
@@ -49,4 +50,5 @@ document.getElementById('webdesign-anfrage').addEventListener('submit',function(
  location.href='mailto:kontakt@monsterdigitalsolutions.de?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent('Guten Tag,\n\nich bitte um ein unverbindliches Kostenangebot für meine Website.\n\n'+lines.join('\n\n')+'\n\nMit freundlichen Grüßen\n'+this.elements.namedItem('name').value);
 });
 </script>
+<script src="mds-navigation.js"></script>
 </body></html>
