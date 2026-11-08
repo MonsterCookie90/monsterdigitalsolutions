@@ -1,28 +1,33 @@
-MONSTER DIGITAL SOLUTIONS – KUNDENCENTER VORSCHAU (08.11.2026)
+MONSTER DIGITAL SOLUTIONS – KUNDENCENTER-GESAMTVORLAGE (08.11.2026)
 
-Diese ZIP enthält genau vier Webdateien plus diese Anleitung:
-- kundencenter.html (öffentliche gesperrte Anmelde-/Registrierungsseite)
-- kundencenter-vorschau.html (interaktive Demo mit BEISPIELDATEN)
-- kundencenter.css (isoliertes Design)
-- kundencenter.js (lokale Bedienlogik ohne Datenabfragen)
+Enthalten:
+- kundencenter.html – öffentlich gesperrte Seite, Login und Registrierung deaktiviert
+- kundencenter-vorschau.html – interaktive Vorschau mit Beispieldaten
+- kundencenter.css, kundencenter.js – Darstellung, Menü und lokale Interaktionen
+- kundencenter-inhalte.json – strukturierter Funktionsplan und Hilfeartikel
 
-INSTALLATION
-1. Vorher Sicherung des bisherigen kundencenter.html anfertigen.
-2. Die vier Webdateien ins Hauptverzeichnis des GitHub-Repositories hochladen.
-3. Die vorhandene kundencenter.html ersetzen; andere Dateien nicht überschreiben.
-4. Änderungen committen, anschließend beide Seiten mit Strg+F5 prüfen.
+Alle vereinbarten Unterfunktionen der Bereiche Dashboard, Bestellungen,
+Rechnungen, Lizenzen, Downloads, Support-Tickets, Projektstatus,
+Hilfe-Center und Konto sind als Bedienoberfläche aufgenommen.
 
-Diese Version greift NICHT in PayPal, Lizenzserver, Adminportal, Datenbanktabellen,
-Supabase-RLS, Installationsdateien oder Datenschutzerklärung ein.
-Sie lädt die vorhandene öffentliche mds-admin-config.js und erkennt damit die
-vorhandene Supabase-Projektkonfiguration, stellt aber KEINE Kundendatenabfragen.
-Die vorhandene Administrationsseite mds-admin.html wird nicht verändert.
+SICHERHEIT / FUNKTIONSSTAND:
+- Keine echten Kundenkonten, keine Registrierung oder Anmeldung.
+- Keine echten Bestellungen, Rechnungen, Lizenzen oder Projektinformationen.
+- Keine PayPal-/Supabase-/Lizenzserver-Abfrage. Bestehende Supabase-Konfiguration
+  kann erkannt werden, es werden aber KEINE Kundeninformationen abgerufen.
+- Suche im Hilfe-Center, Bereichswechsel und beispielhafte Bestell-/Rechnungsfilter funktionieren lokal.
+- Nicht angeschlossene Funktionen sind deutlich als gesperrt gekennzeichnet.
+- Niemals echte Lizenzschlüssel, Kundendaten oder Zugriffsschlüssel ins GitHub-Repository hochladen.
 
-WICHTIG: Die Beispieldaten sind frei erfunden und keine echten Bestellungen,
-Lizenzen oder Rechnungen. PDF-Downloads, Login und Registrierung sind deaktiviert.
-Zum Livebetrieb benötigt man verifizierte Kundenzuordnung, Supabase Auth,
-serverseitige Row Level Security, sichere Rechnungsausgabe und Ticket-APIs.
-Diese Backends werden mit dieser ZIP absichtlich NICHT neu angelegt.
+INSTALLATION:
+1. ZIP entpacken.
+2. Diese fünf Website-Dateien im Hauptverzeichnis des GitHub-Repositories hochladen.
+3. Bestehende Dateien gleichen Namens ersetzen. Keine anderen Dateien löschen.
+4. Commit changes auswählen.
+5. Die gesperrte Seite prüfen: https://monsterdigitalsolutions.de/kundencenter.html
+6. Demo aufrufen: https://monsterdigitalsolutions.de/kundencenter-vorschau.html
 
-Vorschau: https://monsterdigitalsolutions.de/kundencenter-vorschau.html
-Gesperrte Seite: https://monsterdigitalsolutions.de/kundencenter.html
+Die Integration echter Kundendaten erfordert später eine geprüfte Authentifizierung,
+serverseitige Nutzer-Zuordnung, RLS und geeignete vorhandene Schnittstellen.
+Diese Version erstellt keine neuen Tabellen, Endpunkte oder Abonnements.
+Die Beispielvorschau ist öffentlich erreichbar: keine realen Daten eintragen.

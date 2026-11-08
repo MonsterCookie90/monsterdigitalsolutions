@@ -1,0 +1,447 @@
+{
+  "features": {
+    "dashboard": {
+      "title": "Dashboard",
+      "desc": "Deine persönliche Übersicht nach der Anmeldung.",
+      "groups": [
+        [
+          "Übersicht",
+          [
+            [
+              "Kundenprofil und Kundennummer",
+              "backend"
+            ],
+            [
+              "Bestellungen, Rechnungen und Lizenzen",
+              "backend"
+            ],
+            [
+              "Offene Tickets und Rückmeldungen",
+              "backend"
+            ],
+            [
+              "Fortschritt laufender Webdesign-Projekte",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Schnellzugriff",
+          [
+            [
+              "Wichtige Mitteilungen und Softwareupdates",
+              "backend"
+            ],
+            [
+              "Direkt zu Bestellungen, Lizenzen, Support und Hilfe",
+              "navigate"
+            ]
+          ]
+        ]
+      ]
+    },
+    "orders": {
+      "title": "Bestellungen",
+      "desc": "Alle eigenen Softwarekäufe und Webdesign-Aufträge verwalten.",
+      "groups": [
+        [
+          "Bestellverwaltung",
+          [
+            [
+              "Bestellhistorie mit Datum, Nummer, Produkt und Betrag",
+              "backend"
+            ],
+            [
+              "Bestellstatus und Zahlungsart",
+              "backend"
+            ],
+            [
+              "Bestelldetails öffnen",
+              "backend"
+            ],
+            [
+              "Rechnung zur Bestellung aufrufen",
+              "navigate"
+            ],
+            [
+              "Softwaredownload nach Kauf öffnen",
+              "navigate"
+            ]
+          ]
+        ],
+        [
+          "Organisation",
+          [
+            [
+              "Bestellbestätigung und Beleg erneut abrufen",
+              "backend"
+            ],
+            [
+              "Bestellungen durchsuchen und filtern",
+              "filter"
+            ]
+          ]
+        ]
+      ]
+    },
+    "invoices": {
+      "title": "Rechnungen",
+      "desc": "Eigene Rechnungen, Gutschriften und Rechnungsdaten.",
+      "groups": [
+        [
+          "Dokumente",
+          [
+            [
+              "Rechnungsübersicht mit Datum und Betrag",
+              "backend"
+            ],
+            [
+              "Rechnung als PDF herunterladen",
+              "backend"
+            ],
+            [
+              "Gutschriften und Stornierungen anzeigen",
+              "backend"
+            ],
+            [
+              "Rechnungen nach Zeitraum und Produkt filtern",
+              "filter"
+            ]
+          ]
+        ],
+        [
+          "Rechnungsdaten",
+          [
+            [
+              "Rechnungsanschrift ansehen",
+              "backend"
+            ],
+            [
+              "Rechnungsanschrift für zukünftige Käufe bearbeiten",
+              "backend"
+            ],
+            [
+              "Rechnungskorrektur über Support anfragen",
+              "navigate"
+            ]
+          ]
+        ]
+      ]
+    },
+    "licenses": {
+      "title": "Lizenzen",
+      "desc": "Softwarelizenzen und zugehörige Aktivierungen verwalten.",
+      "groups": [
+        [
+          "Lizenzübersicht",
+          [
+            [
+              "Aktive, abgelaufene und noch nicht aktivierte Lizenzen",
+              "backend"
+            ],
+            [
+              "Lizenzschlüssel geschützt anzeigen und kopieren",
+              "backend"
+            ],
+            [
+              "Erstaktivierung und Ablaufdatum anzeigen",
+              "backend"
+            ],
+            [
+              "Maximal zwei zugelassene PCs je Lizenz anzeigen",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Lizenzverwaltung",
+          [
+            [
+              "Gerätenamen und Aktivierungsstatus anzeigen",
+              "backend"
+            ],
+            [
+              "Gerät nach Berechtigungsprüfung deaktivieren",
+              "backend"
+            ],
+            [
+              "Standard zu Pro upgraden – Schlüssel und Laufzeit erhalten",
+              "backend"
+            ],
+            [
+              "Lizenzverlängerung anzeigen",
+              "backend"
+            ],
+            [
+              "Verfügbare Softwareupdates aufrufen",
+              "navigate"
+            ]
+          ]
+        ]
+      ]
+    },
+    "downloads": {
+      "title": "Downloads",
+      "desc": "Die passende Software und Installationshilfe finden.",
+      "groups": [
+        [
+          "Software",
+          [
+            [
+              "Neueste stabile Programmversion nach Berechtigung herunterladen",
+              "backend"
+            ],
+            [
+              "Ältere Versionen bei Bedarf anzeigen",
+              "backend"
+            ],
+            [
+              "Version, Veröffentlichungsdatum und Dateigröße anzeigen",
+              "backend"
+            ],
+            [
+              "Versionsänderungen anzeigen",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Dokumentation",
+          [
+            [
+              "Installations- und Updateanleitungen öffnen",
+              "help"
+            ],
+            [
+              "Systemanforderungen lesen",
+              "help"
+            ],
+            [
+              "Beta-Versionen nur für freigeschaltete Tester",
+              "backend"
+            ]
+          ]
+        ]
+      ]
+    },
+    "tickets": {
+      "title": "Support-Tickets",
+      "desc": "Technische Hilfe mit nachvollziehbarem Vorgangsverlauf.",
+      "groups": [
+        [
+          "Neue Anfrage",
+          [
+            [
+              "Neues Support-Ticket erstellen",
+              "backend"
+            ],
+            [
+              "Kategorie: Software, Webdesign oder Rechnung wählen",
+              "backend"
+            ],
+            [
+              "Priorität und Fehlerbeschreibung angeben",
+              "backend"
+            ],
+            [
+              "Screenshots und Logdateien sicher hochladen",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Bearbeitung",
+          [
+            [
+              "Vorgangsnummer und Eingangsbestätigung erhalten",
+              "backend"
+            ],
+            [
+              "Ticketverlauf und Bearbeitungsstatus lesen",
+              "backend"
+            ],
+            [
+              "Auf Rückfragen antworten",
+              "backend"
+            ],
+            [
+              "Gelöstes Ticket abschließen",
+              "backend"
+            ],
+            [
+              "Bestellung oder Lizenz zuordnen",
+              "backend"
+            ]
+          ]
+        ]
+      ]
+    },
+    "projects": {
+      "title": "Projektstatus",
+      "desc": "Aufträge, Entwürfe und Freigaben im Blick behalten.",
+      "groups": [
+        [
+          "Webdesign-Projekte",
+          [
+            [
+              "Alle eigenen Website-Projekte anzeigen",
+              "backend"
+            ],
+            [
+              "Phasen von Anfrage bis Fertigstellung anzeigen",
+              "backend"
+            ],
+            [
+              "Entwürfe und Vorschauen öffnen",
+              "backend"
+            ],
+            [
+              "Änderungswünsche übermitteln",
+              "backend"
+            ],
+            [
+              "Projektdateien herunterladen",
+              "backend"
+            ],
+            [
+              "Freigaben und Rückfragen bestätigen",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Entwicklung",
+          [
+            [
+              "Optionale Software-Entwicklungsübersicht",
+              "backend"
+            ],
+            [
+              "Veröffentlichte Änderungen je Version",
+              "backend"
+            ]
+          ]
+        ]
+      ]
+    },
+    "help": {
+      "title": "Hilfe-Center",
+      "desc": "Lokale Hilfeartikel durchsuchen; später mit freigegebenem Support verbinden.",
+      "groups": [
+        [
+          "Hilfe und Anleitungen",
+          [
+            [
+              "Wissensdatenbank durchsuchen",
+              "help"
+            ],
+            [
+              "Installation und Lizenzaktivierung erklären",
+              "help"
+            ],
+            [
+              "Bestell- und Rechnungsfragen klären",
+              "help"
+            ],
+            [
+              "Fehler nach Stichwort finden",
+              "help"
+            ],
+            [
+              "Updates und Gerätewechsel erklären",
+              "help"
+            ]
+          ]
+        ],
+        [
+          "Weitere Unterstützung",
+          [
+            [
+              "MILO als Website-Assistent öffnen",
+              "milo"
+            ],
+            [
+              "Support-Ticket bei ungelöstem Problem",
+              "navigate"
+            ]
+          ]
+        ]
+      ]
+    },
+    "account": {
+      "title": "Konto",
+      "desc": "Persönliche Daten, Anmeldung und Datenschutz.",
+      "groups": [
+        [
+          "Persönliche Angaben",
+          [
+            [
+              "Name, E-Mail und Kundennummer anzeigen",
+              "backend"
+            ],
+            [
+              "Rechnungsadresse bearbeiten",
+              "backend"
+            ],
+            [
+              "Passwort ändern",
+              "backend"
+            ],
+            [
+              "E-Mail-Adresse verifiziert ändern",
+              "backend"
+            ]
+          ]
+        ],
+        [
+          "Sicherheit und Datenschutz",
+          [
+            [
+              "Benachrichtigungen einstellen",
+              "backend"
+            ],
+            [
+              "Persönliche Daten exportieren",
+              "backend"
+            ],
+            [
+              "Kontolöschung unter Aufbewahrungspflichten beantragen",
+              "backend"
+            ],
+            [
+              "Von allen Sitzungen abmelden",
+              "backend"
+            ]
+          ]
+        ]
+      ]
+    }
+  },
+  "articles": [
+    {
+      "title": "Monster Finanzmanager – Lizenz aktivieren",
+      "body": "Gib deinen gültigen Lizenzschlüssel in der Software ein. Die Laufzeit von 12 Monaten beginnt bei der ersten erfolgreichen Aktivierung. Eine weitere Aktivierung auf einem zugelassenen zweiten Gerät beginnt die Laufzeit nicht erneut."
+    },
+    {
+      "title": "Zweiten PC verwenden",
+      "body": "Für die entsprechenden Jahreslizenzen sind höchstens zwei PCs vorgesehen. Ein Gerätewechsel muss später über die bestehende Lizenzverwaltung geprüft werden."
+    },
+    {
+      "title": "Wo bekomme ich eine Rechnung?",
+      "body": "Bis das Kundencenter freigeschaltet ist, hilft support@monsterdigitalsolutions.de. Im späteren Kundenkonto sind nur eigene Rechnungen sichtbar."
+    },
+    {
+      "title": "Software aktualisieren",
+      "body": "Kunden sollen stets die neueste freigegebene stabile Programmversion erhalten. Einstellungen und lokale Finanzdaten dürfen dabei nicht verloren gehen."
+    },
+    {
+      "title": "Support kontaktieren",
+      "body": "Schreibe an support@monsterdigitalsolutions.de. Die spätere Ticketfunktion braucht einen sicheren serverseitigen Dienst und ist derzeit nicht freigegeben."
+    },
+    {
+      "title": "Monster Dienstplaner und BusConnect",
+      "body": "Monster BusConnect ist als Modul des Monster Dienstplaners geplant. Die Verfügbarkeit einzelner Funktionen hängt vom jeweiligen Entwicklungsstand ab."
+    }
+  ],
+  "version": "2026-11-08"
+}
