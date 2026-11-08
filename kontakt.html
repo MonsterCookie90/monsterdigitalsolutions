@@ -16,7 +16,7 @@
 .contact-form textarea{min-height:165px;resize:vertical}.contact-form .two-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .contact-form .consent{display:flex;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}.contact-form .consent input{width:auto;margin-top:5px}
 .contact-form .hint{font-size:.9rem;color:#bbcee0;margin:0}.contact-info a,.contact-form a{color:#54d4ff}
-.contact-form button{cursor:pointer}.contact-status{margin-top:12px;color:#d9efff}
+.contact-form button{cursor:pointer}.contact-form fieldset{border:1px solid #35516e;border-radius:12px;padding:16px;margin:0;display:grid;gap:14px}.contact-form legend{padding:0 8px;font-weight:700;color:#64d7ff}.contact-form .conditional[hidden]{display:none}.contact-form .section-note{font-size:.88rem;color:#b8cce2;margin:0}.contact-form .optional{font-size:.82rem;color:#b8cce2;font-weight:400}.contact-status{margin-top:12px;color:#d9efff}
 @media(max-width:780px){.contact-layout{grid-template-columns:1fr}.contact-form .two-fields{grid-template-columns:1fr}}
 </style>
 </head>
@@ -33,8 +33,12 @@
         <form id="contact-form" class="contact-form">
           <div class="two-fields"><label>Vor- und Nachname *<input name="name" autocomplete="name" maxlength="120" required></label>
           <label>E-Mail-Adresse *<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div>
-          <label>Unternehmen (optional)<input name="company" autocomplete="organization" maxlength="120"></label>
+          <div class="two-fields"><label>Telefonnummer <span class="optional">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="45" placeholder="Für einen Rückruf"></label><label>Unternehmen <span class="optional">(optional)</span><input name="company" autocomplete="organization" maxlength="120"></label></div>
+          <label>Wie dürfen wir dich kontaktieren? <select name="reply"><option value="E-Mail">Per E-Mail</option><option value="Telefon">Telefonisch</option><option value="E-Mail oder Telefon">Beides möglich</option></select></label>
           <label>Worum geht es? *<select name="topic" required><option value="">Bitte auswählen</option><option>Monster Finanzmanager</option><option>Monster Terminplaner</option><option>Software – allgemeine Anfrage</option><option>Webdesign / Website erstellen</option><option>Musik / TheMonsterz</option><option>Partnerprogramm</option><option>Bestellung / Rechnung</option><option>Support / technisches Problem</option><option>Sonstiges</option></select></label>
+          <fieldset class="conditional" id="software-fields" hidden><legend>Angaben zur Software</legend><p class="section-note">Hilft uns, dein Anliegen schneller zuzuordnen.</p><div class="two-fields"><label>Software / Produkt<select name="product"><option value="">Bitte auswählen</option><option>Monster Finanzmanager</option><option>Monster Terminplaner</option><option>Andere Software</option></select></label><label>Programmversion <span class="optional">(optional)</span><input name="version" maxlength="60" placeholder="z. B. 1.0.1"></label></div><div class="two-fields"><label>Kundennummer <span class="optional">(optional)</span><input name="customer" maxlength="80"></label><label>Bestellnummer <span class="optional">(optional)</span><input name="order" maxlength="80"></label></div><label>Was passiert genau? <span class="optional">(optional)</span><textarea name="error" maxlength="2500" placeholder="Fehlermeldung, betroffene Funktion und Schritte zum Nachstellen" style="min-height:95px"></textarea></label></fieldset>
+          <fieldset class="conditional" id="project-fields" hidden><legend>Angaben zum Projekt</legend><div class="two-fields"><label>Gewünschte Leistung<select name="service"><option value="">Bitte auswählen</option><option>Neue Website</option><option>Bestehende Website überarbeiten</option><option>SEO / Auffindbarkeit</option><option>Website-Pflege</option><option>Sonstiges</option></select></label><label>Gewünschter Zeitraum<input name="timeline" maxlength="100" placeholder="z. B. innerhalb von 2 Monaten"></label></div><div class="two-fields"><label>Ungefähres Budget <span class="optional">(optional)</span><input name="budget" maxlength="80" placeholder="z. B. 500 €"></label><label>Bestehende Website <span class="optional">(optional)</span><input name="website" type="url" placeholder="https://..."></label></div></fieldset>
+          <fieldset class="conditional" id="music-fields" hidden><legend>Musik / Kooperation</legend><div class="two-fields"><label>Art der Anfrage<select name="musicType"><option value="">Bitte auswählen</option><option>Zusammenarbeit</option><option>Auftritt / Veranstaltung</option><option>Lizenzierung / Nutzung</option><option>Presse / Interview</option><option>Sonstiges</option></select></label><label>Termin <span class="optional">(falls bekannt)</span><input name="eventDate" type="date"></label></div></fieldset>
           <label>Betreff *<input name="subject" maxlength="180" required></label>
           <label>Deine Nachricht *<textarea name="message" maxlength="10000" required placeholder="Beschreibe kurz dein Anliegen …"></textarea></label>
           <label class="consent"><input type="checkbox" required><span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
@@ -50,6 +54,15 @@
         <p>Weitere Angaben findest du im <a href="impressum.html">Impressum</a>.</p>
       </aside></div>`;
   const form=document.getElementById('contact-form');
+  const topicSelect=form.elements.namedItem('topic');
+  function updateTopicFields(){
+    const t=String(topicSelect.value||'');
+    document.getElementById('software-fields').hidden=!(/^(Monster |Software|Support|Bestellung)/.test(t));
+    document.getElementById('project-fields').hidden=!t.includes('Webdesign');
+    document.getElementById('music-fields').hidden=!(t.includes('Musik')||t.includes('Partner'));
+  }
+  topicSelect.addEventListener('change',updateTopicFields);
+  updateTopicFields();
   form.addEventListener('submit',function(ev){
     ev.preventDefault();
     if(!form.reportValidity())return;
@@ -57,7 +70,7 @@
     const topic=String(d.get('topic')||'');
     const recipient=topic.includes('Support')||topic.includes('technisches')?'support@monsterdigitalsolutions.de':topic.includes('Bestellung')?'bestellung@monsterdigitalsolutions.de':'kontakt@monsterdigitalsolutions.de';
     const subject='[Website-Kontakt: '+topic+'] '+String(d.get('subject')||'');
-    const body=['Anliegen: '+topic,'Name: '+d.get('name'),'Unternehmen: '+(d.get('company')||'–'),'E-Mail: '+d.get('email'),'','Nachricht:',''+d.get('message')].join('\n');
+    const details=[['Anliegen',topic],['Name',d.get('name')],['E-Mail',d.get('email')],['Telefon',d.get('phone')],['Unternehmen',d.get('company')],['Kontaktwunsch',d.get('reply')],['Produkt',d.get('product')],['Programmversion',d.get('version')],['Kundennummer',d.get('customer')],['Bestellnummer',d.get('order')],['Fehlerbeschreibung',d.get('error')],['Leistung',d.get('service')],['Zeitraum',d.get('timeline')],['Budget',d.get('budget')],['Website',d.get('website')],['Musikanfrage',d.get('musicType')],['Veranstaltungstermin',d.get('eventDate')]].filter(([,v])=>v).map(([k,v])=>k+': '+v);const body=[...details,'','Nachricht:',String(d.get('message')||'')].join('\n');
     document.getElementById('contact-status').textContent='Dein E-Mail-Programm wird geöffnet. Bitte sende die Nachricht dort ab.';
     window.location.href='mailto:'+recipient+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   });
