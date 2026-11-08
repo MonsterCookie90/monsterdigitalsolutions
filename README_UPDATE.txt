@@ -7,7 +7,7 @@ INHALT
 - Aktualisierte Software-Übersichtsseite ohne Tarif-Preistabelle
 - Kundencenter: gesperrte Hinweis-Seite, KEIN Login/Backend
 - Usercentrics-Einbindung mit Settings-ID SRDdE9YIAR2-Q-
-- Existierende Datenschutzerklärung mit MILO wird NICHT überschrieben.
+- NEU: Datenschutzerklärung vom 08.11.2026 (vollständiger bereitgestellter Text) mit ergänztem MILO-Abschnitt ersetzt datenschutz.html.
 
 INSTALLATION (WINDOWS)
 1. ZIP in einen lokalen Ordner entpacken.
@@ -20,7 +20,9 @@ INSTALLATION (WINDOWS)
 WICHTIG
 - Dieses ZIP ist ein Änderungs-Paket, keine vollständige 197-MB-Sicherung.
 - Bestell-, Zahlungs-, Lizenz- und Installationsdateien werden nicht ersetzt.
-- Datenschutzerklärung wird inhaltlich nicht umgeschrieben; nur CMP-Skripte in <head> ergänzt.
+- datenschutz.html wird bewusst aktualisiert; Original wird im Backup-Verzeichnis gesichert. Die neue Fassung basiert auf dem vom Nutzer am 08.11.2026 bereitgestellten Rechtstext und ergänzt eine technische MILO-Erklärung. Usercentrics wird bei der Installation in <head> eingebunden.
+- Prüfen: Der zugelieferte Text enthält auch noch nicht aktive Angebote/Funktionen (z.B. Kundenkonto, Upload, Google Pay) und eine Spotify-Rechtsgrundlage, die vor Veröffentlichung juristisch mit der tatsächlichen Website abgeglichen werden muss.
+- MILO-Ergänzung wurde technisch erstellt und ist keine Prüfung durch die IT-Recht Kanzlei.
 - In Usercentrics müssen Domain, Dienste und insbesondere Spotify korrekt eingerichtet sein.
 - Das mitgelieferte Usercentrics-Blockierungsskript allein garantiert nicht vollständige Blockierung.
 - Spotify wird auf bestehenden HTML-Seiten zusätzlich manuell mit data-usercentrics="Spotify" gekennzeichnet. Der Dienstname muss in Usercentrics GENAU so angelegt sein.

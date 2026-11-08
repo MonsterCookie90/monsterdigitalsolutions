@@ -22,7 +22,7 @@ $cmp=@'
 <script src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
 <!-- Ende Usercentrics CMP -->
 '@
-$copied=@('mds-update.css','webdesign-demos.html','webdesign-anfrage.html','kundencenter.html','vergleich.html', 'demos/friseur.html','demos/handwerk.html','demos/restaurant.html','demos/beratung.html')
+$copied=@('datenschutz.html','mds-update.css','webdesign-demos.html','webdesign-anfrage.html','kundencenter.html','vergleich.html', 'demos/friseur.html','demos/handwerk.html','demos/restaurant.html','demos/beratung.html')
 foreach($relative in $copied){
   $from=Join-Path $src $relative;$to=Join-Path $site $relative
   if(!(Test-Path -LiteralPath $from)){throw "Paket unvollständig: $relative"}
@@ -30,7 +30,7 @@ foreach($relative in $copied){
   $dir=Split-Path -Parent $to;if(!(Test-Path $dir)){New-Item -ItemType Directory -Force -Path $dir|Out-Null}
   Copy-Item -LiteralPath $from -Destination $to -Force
 }
-# Das bestehende Rechtstext-Dokument bleibt unverändert bis auf die CMP-Einbindung im HEAD.
+# Die neue Datenschutzerklärung vom 08.11.2026 ersetzt gezielt die bisherige Version. MILO ist als Ergänzung enthalten.
 # Die vorhandenen Kauf-, Lizenz-, Download- und Administrator-JS-Dateien werden nicht gelöscht.
 $htmlFiles=Get-ChildItem -LiteralPath $site -Filter '*.html' -File | Where-Object { $_.Name -notlike 'startseite-vorschau.html' }
 foreach($file in $htmlFiles){
@@ -66,7 +66,7 @@ if(Test-Path -LiteralPath $web){
   if($c -notmatch 'href="mds-update.css"'){ $c=[regex]::Replace($c,'(?i)</head>','<link rel="stylesheet" href="mds-update.css">' + "`r`n</head>",1) }
   WriteUtf8 $web $c
 }
-Write-Host 'Update-Dateien vorbereitet. Datenschutztext inhaltlich beibehalten.' -ForegroundColor Green
+Write-Host 'Update-Dateien vorbereitet. Datenschutzerklärung vom 08.11.2026 inklusive MILO eingebaut.' -ForegroundColor Green
 Write-Host "Backup: $backup" -ForegroundColor Cyan
 Write-Host 'Vor einer Veröffentlichung: Spotify-Einwilligung, CMP, Links, Webdesign-Formular, PayPal und Lizenzen testen.' -ForegroundColor Yellow
 Write-Host 'Es wurden KEINE Änderungen direkt auf GitHub veröffentlicht.'
