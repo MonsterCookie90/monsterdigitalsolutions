@@ -1,1 +1,65 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Monster Digital Solutions – Software, Webdesign und Musik."><title>Monster Digital Solutions</title><link rel="stylesheet" href="style.css"></head><body><div id="app"></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kontakt zu Monster Digital Solutions – Anfragen zu Software, Webdesign, Musik und Partnerschaften.">
+<title>Kontakt | Monster Digital Solutions</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr);gap:28px;margin:30px 0 65px}
+.contact-panel{background:rgba(13,26,48,.9);border:1px solid rgba(65,184,255,.25);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.contact-panel h2{margin:0 0 12px}.contact-panel p{line-height:1.7}
+.contact-form{display:grid;gap:16px}.contact-form label{display:grid;gap:7px;font-weight:600;color:#e7f4ff}
+.contact-form input,.contact-form select,.contact-form textarea{box-sizing:border-box;width:100%;padding:13px 14px;background:#081526;color:#fff;border:1px solid #43617b;border-radius:10px;font:inherit}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid #36bfff;outline-offset:1px}
+.contact-form textarea{min-height:165px;resize:vertical}.contact-form .two-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form .consent{display:flex;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}.contact-form .consent input{width:auto;margin-top:5px}
+.contact-form .hint{font-size:.9rem;color:#bbcee0;margin:0}.contact-info a,.contact-form a{color:#54d4ff}
+.contact-form button{cursor:pointer}.contact-status{margin-top:12px;color:#d9efff}
+@media(max-width:780px){.contact-layout{grid-template-columns:1fr}.contact-form .two-fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div id="app"></div><script src="app.js"></script>
+<script>
+(function(){
+  const app=document.getElementById('app');
+  const main=app.querySelector('main');
+  if(!main)return;
+  main.innerHTML=`<div class="eyebrow">MONSTER DIGITAL SOLUTIONS</div>
+    <h1>Kontakt</h1><p>Du hast Fragen zu unseren Produkten, möchtest eine Website anfragen oder eine Zusammenarbeit besprechen? Schreib uns.</p>
+    <div class="contact-layout">
+      <section class="contact-panel" aria-labelledby="form-title"><h2 id="form-title">Nachricht schreiben</h2>
+        <form id="contact-form" class="contact-form">
+          <div class="two-fields"><label>Vor- und Nachname *<input name="name" autocomplete="name" maxlength="120" required></label>
+          <label>E-Mail-Adresse *<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div>
+          <label>Unternehmen (optional)<input name="company" autocomplete="organization" maxlength="120"></label>
+          <label>Worum geht es? *<select name="topic" required><option value="">Bitte auswählen</option><option>Monster Finanzmanager</option><option>Monster Terminplaner</option><option>Software – allgemeine Anfrage</option><option>Webdesign / Website erstellen</option><option>Musik / TheMonsterz</option><option>Partnerprogramm</option><option>Bestellung / Rechnung</option><option>Support / technisches Problem</option><option>Sonstiges</option></select></label>
+          <label>Betreff *<input name="subject" maxlength="180" required></label>
+          <label>Deine Nachricht *<textarea name="message" maxlength="10000" required placeholder="Beschreibe kurz dein Anliegen …"></textarea></label>
+          <label class="consent"><input type="checkbox" required><span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
+          <p class="hint">* Pflichtfelder. Das Formular öffnet dein E-Mail-Programm mit einer vorbereiteten Nachricht. Der Versand erfolgt erst dort.</p>
+          <button type="submit" class="btn primary">✉ E-Mail vorbereiten</button><p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+        </form></section>
+      <aside class="contact-panel contact-info"><h2>Direkter Kontakt</h2>
+        <p><strong>Monster Digital Solutions</strong></p>
+        <p>Allgemeine Anfragen:<br><a href="mailto:kontakt@monsterdigitalsolutions.de">kontakt@monsterdigitalsolutions.de</a></p>
+        <p>Software-Support:<br><a href="mailto:support@monsterdigitalsolutions.de">support@monsterdigitalsolutions.de</a></p>
+        <p>Bestellungen:<br><a href="mailto:bestellung@monsterdigitalsolutions.de">bestellung@monsterdigitalsolutions.de</a></p>
+        <p>Rechnungen:<br><a href="mailto:rechnung@monsterdigitalsolutions.de">rechnung@monsterdigitalsolutions.de</a></p>
+        <p>Weitere Angaben findest du im <a href="impressum.html">Impressum</a>.</p>
+      </aside></div>`;
+  const form=document.getElementById('contact-form');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!form.reportValidity())return;
+    const d=new FormData(form);
+    const topic=String(d.get('topic')||'');
+    const recipient=topic.includes('Support')||topic.includes('technisches')?'support@monsterdigitalsolutions.de':topic.includes('Bestellung')?'bestellung@monsterdigitalsolutions.de':'kontakt@monsterdigitalsolutions.de';
+    const subject='[Website-Kontakt: '+topic+'] '+String(d.get('subject')||'');
+    const body=['Anliegen: '+topic,'Name: '+d.get('name'),'Unternehmen: '+(d.get('company')||'–'),'E-Mail: '+d.get('email'),'','Nachricht:',''+d.get('message')].join('\n');
+    document.getElementById('contact-status').textContent='Dein E-Mail-Programm wird geöffnet. Bitte sende die Nachricht dort ab.';
+    window.location.href='mailto:'+recipient+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+})();
+</script></body></html>
