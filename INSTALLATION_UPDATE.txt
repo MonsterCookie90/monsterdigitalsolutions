@@ -1,0 +1,14 @@
+MDS WEBSITE – VORSCHAU / UPDATE
+================================
+1. ORIGINAL-SICHERUNG: SICHERUNG_ORIGINAL/ enthält die exakt gelieferten Dateien.
+2. Neue Seiten: vergleich.html, entwicklung.html, feedback.html, webdesign-anfrage.html.
+3. MILO: mds-extra.js, mds-extra.css, milo-logo.svg, mds-wissen.json.
+4. Auf allen Seiten wird MILO eingebunden. Der Verlauf wird nur pro Browser-Tab in sessionStorage gehalten.
+5. MILO ist KEIN generatives KI-Modell: kuratierte Fragen/Schlüsselwörter, Fallback zum Support.
+6. Feedback und Webdesign-Anfrage öffnen den lokalen E-Mail-Client; kein Serverformular.
+7. startseite-vorschau.html enthält eine Vorschau-Markierung; der neue Infoabschnitt ist derzeit auch in index.html aktiv.
+8. Wiederherstellung: Originaldateien aus SICHERUNG_ORIGINAL zurückkopieren und neue Dateien entfernen.
+9. WICHTIG: Die hochgeladene ZIP enthielt KEINEN assets/-Ordner und KEINE Bilddateien. Bestehende Bildverweise sind deshalb in dieser ZIP nicht auflösbar. Bestehende Live-Assets auf GitHub NICHT löschen.
+10. Vor Live-Schaltung in einer Testumgebung prüfen, insbesondere PayPal, Shop, Supabase, Navigation und mobile Darstellung. Nicht automatisch veröffentlicht.
+11. Datenschutzerklärung enthält MILO-Ergänzung. Rechtliche Prüfung vor Veröffentlichung empfohlen.
+12. Produktangaben basieren auf den vorhandenen Website-Dateien und freigegebenen Projektangaben; Preise/Release-Status vor Live-Schaltung kontrollieren.

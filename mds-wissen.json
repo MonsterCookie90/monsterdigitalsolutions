@@ -1,0 +1,119 @@
+{
+  "status": {
+    "finanzmanager": "Informationen zum Entwicklungsstand auf der Produktseite beachten.",
+    "schichtplaner": "In Entwicklung. Kein verbindlicher Veröffentlichungstermin."
+  },
+  "support": "support@monsterdigitalsolutions.de",
+  "faq": [
+    {
+      "keys": [
+        "finanzmanager",
+        "finanzen",
+        "einnahmen",
+        "ausgaben",
+        "geld",
+        "budget"
+      ],
+      "title": "Monster Finanzmanager",
+      "answer": "Der Monster Finanzmanager unterstützt bei Einnahmen, Ausgaben, Verträgen und der Finanzplanung. Je nach Lizenz stehen weitere Funktionen wie Dateiimport, Kredite und Prognosen zur Verfügung. Details und den aktuellen Angebotsstatus findest du auf der Produktseite.",
+      "url": "finanzmanager.html"
+    },
+    {
+      "keys": [
+        "schichtplaner",
+        "dienstplan",
+        "terminplaner",
+        "schicht",
+        "mitarbeiter",
+        "busconnect"
+      ],
+      "title": "Monster Schichtplaner",
+      "answer": "Der Monster Schichtplaner ist in Entwicklung. Geplant sind Dienst- und Schichtplanung, Zeitkonten, Qualifikationen, Rollen, flexible Module und Monster BusConnect. Ein verbindlicher Veröffentlichungstermin steht nicht fest.",
+      "url": "terminplaner.html"
+    },
+    {
+      "keys": [
+        "webdesign",
+        "website erstellen",
+        "homepage",
+        "webseite",
+        "pflege"
+      ],
+      "title": "Webdesign",
+      "answer": "Monster Digital Solutions bietet Website-Erstellung und Pflege an. Auf der Webdesign-Seite findest du weitere Informationen und eine Anfragemöglichkeit.",
+      "url": "webdesign.html"
+    },
+    {
+      "keys": [
+        "support",
+        "fehler",
+        "problem",
+        "absturz",
+        "lizenz funktioniert",
+        "installation"
+      ],
+      "title": "Technischer Support",
+      "answer": "Bei technischen Problemen hilft dir unser Support unter support@monsterdigitalsolutions.de. Bitte keine Passwörter, Lizenzschlüssel oder vertraulichen Finanzdaten im Chat eingeben.",
+      "url": "kontakt.html"
+    },
+    {
+      "keys": [
+        "idee",
+        "softwarewunsch",
+        "vorschlag",
+        "feedback",
+        "verbesserung"
+      ],
+      "title": "Ideen und Feedback",
+      "answer": "Du kannst Funktionswünsche, Verbesserungsvorschläge und Ideen für ganz neue Software über unser Feedbackformular einreichen.",
+      "url": "feedback.html"
+    },
+    {
+      "keys": [
+        "kontakt",
+        "email",
+        "erreichen",
+        "anschreiben"
+      ],
+      "title": "Kontakt",
+      "answer": "Für allgemeine Fragen nutze kontakt@monsterdigitalsolutions.de. Bei Softwareproblemen erreichst du support@monsterdigitalsolutions.de.",
+      "url": "kontakt.html"
+    },
+    {
+      "keys": [
+        "veröffentlichung",
+        "erscheint",
+        "release",
+        "wann verfügbar",
+        "termin"
+      ],
+      "title": "Entwicklungsstand",
+      "answer": "Verbindliche Veröffentlichungstermine nennen wir nur, wenn sie offiziell bestätigt wurden. Die Entwicklungsübersicht zeigt den jeweils veröffentlichten Status.",
+      "url": "entwicklung.html"
+    },
+    {
+      "keys": [
+        "preis",
+        "standard",
+        "pro",
+        "vergleich",
+        "lizenz"
+      ],
+      "title": "Produktvergleich",
+      "answer": "Für den Monster Finanzmanager findest du den Vergleich von Standard und Pro auf unserer Vergleichsseite. Beim Schichtplaner werden während der Entwicklung keine Tarife oder Preise veröffentlicht.",
+      "url": "vergleich.html"
+    },
+    {
+      "keys": [
+        "musik",
+        "themonsterz",
+        "monstrum",
+        "nexus",
+        "spotify"
+      ],
+      "title": "Musik",
+      "answer": "Auf unserer Musikseite findest du TheMonsterz, Monstrum Invictum und Nexus Infernum mit Links zu ihren Spotify-Profilen.",
+      "url": "musik.html"
+    }
+  ]
+}
