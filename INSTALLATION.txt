@@ -1,0 +1,7 @@
+Monster Digital Solutions – Website-Update 08.11.2026
+
+Alle Dateien aus diesem ZIP in das Hauptverzeichnis des bestehenden GitHub-Repositories hochladen und vorhandene Dateien ersetzen. Die bisherigen Bilder und sonstigen Dateien bleiben im Repository erhalten.
+
+Enthalten: einheitliche Navigation, neue Musikseite (TheMonsterz, Monstrum Invictum, Nexus Infernum), ausführliche Terminplaner-Seite ohne Preise/Tarife, Terminplaner-Karte im digitalen Shop. Bestehender Finanzmanager-Checkout und PayPal-Sandbox-Code bleiben erhalten.
+
+Hinweis: Der Upload in GitHub wurde nicht automatisch durchgeführt.
