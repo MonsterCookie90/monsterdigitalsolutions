@@ -241,14 +241,19 @@
     .finance-edition ul { padding-left: 20px; color: var(--muted); line-height: 1.8; }
     .finance-edition.pro { border-color: rgba(0,221,255,.35); }
     .finance-coming { display: block; margin-top: 18px; padding: 13px; text-align: center; border-radius: 999px; border: 1px solid rgba(0,221,255,.3); color: var(--cyan); font-weight: 800; background: rgba(0,221,255,.07); }
-    .live-buy[hidden], .live-panel[hidden] { display:none !important; }
-    .live-buy { width:100%; font:inherit; cursor:pointer; }
-    .live-panel { margin-top:24px; padding:25px; border:1px solid var(--cyan); border-radius:18px; background:#090f22; }
-    .live-panel label { display:block; margin:14px 0 6px; font-weight:700; }
-    .live-panel input { width:100%; padding:13px; color:white; background:#111b35; border:1px solid #526181; border-radius:10px; font:inherit; }
-    .live-panel button { padding:14px 22px; margin-top:20px; background:var(--cyan); color:#061020; border:0; border-radius:999px; font-weight:900; cursor:pointer; }
-    .live-panel button:disabled { opacity:.5; cursor:wait; }
-    .live-error { color:#ff9ca7; }
+    .sandbox-buy[hidden] { display:none; }
+    body:has(.sandbox-panel:not([hidden])) .public-coming { display:none; }
+    .sandbox-buy { width:100%; font:inherit; cursor:pointer; }
+    .sandbox-buy:hover { background:rgba(0,221,255,.17); }
+    .sandbox-buy:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+    .sandbox-panel { margin-top:24px; padding:25px; border:1px solid var(--cyan); border-radius:18px; background:#090f22; }
+    .sandbox-panel[hidden] { display:none; }
+    .sandbox-panel label { display:block; margin:14px 0 6px; font-weight:700; }
+    .sandbox-panel input { width:100%; padding:13px; color:white; background:#111b35; border:1px solid #526181; border-radius:10px; font:inherit; }
+    .sandbox-panel button { padding:14px 22px; margin-top:20px; background:var(--cyan); color:#061020; border:0; border-radius:999px; font-weight:900; cursor:pointer; }
+    .sandbox-panel button:disabled { opacity:.5; cursor:wait; }
+    .sandbox-panel .sandbox-error { color:#ff9ca7; }
+    .sandbox-panel .sandbox-result { overflow-wrap:anywhere; }
     .finance-detail-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; padding:15px 26px; background:var(--cyan); color:#061020; font-weight:900; border-radius:999px; text-decoration:none; transition:transform .2s,background .2s; }
     .finance-detail-link:hover,.finance-detail-link:focus-visible { background:#8cf2ff; transform:translateY(-2px); }
     .finance-disclaimer { font-size: .85rem; margin-bottom: 0; }
@@ -265,14 +270,9 @@
 </head>
 <body>
   <header class="site-header">
-   <a href="index.html"
-   aria-label="Zur TheMonsterz Startseite"
-   style="position:relative; display:block; width:120px; height:54px; overflow:hidden; flex-shrink:0;">
-
-  <img src="themonsterz-header-logo.png"
-       alt="TheMonsterz"
-       style="position:absolute; top:50%; left:0; width:120px; height:auto; max-width:none; transform:translateY(-50%);">
-</a>
+    <a href="index.html" aria-label="Monster Digital Solutions – Startseite" style="display:flex;align-items:center;flex-shrink:0;">
+      <img src="assets/logo-reference.png" alt="Monster Digital Solutions" style="width:155px;height:54px;object-fit:contain;">
+    </a>
     <nav class="navigation" aria-label="Hauptnavigation">
       <a href="index.html">Startseite</a>
       <a href="shop.html">Shop</a>
@@ -302,7 +302,7 @@
             <li>Dashboard und Auswertungen</li>
             <li>Lokale Datenspeicherung</li>
           </ul>
-          <span class="finance-coming">Noch nicht bestellbar</span><button type="button" class="finance-coming live-buy" hidden data-product="finanzmanager_pro">Interner Live-Testkauf Pro</button><button type="button" class="finance-coming live-buy" hidden data-product="finanzmanager_standard">Interner Live-Testkauf Standard</button>
+          <button type="button" class="finance-coming sandbox-buy" hidden data-product="finanzmanager_standard">Sandbox-Testkauf Standard</button><span class="finance-coming public-coming">Noch nicht bestellbar</span>
         </article>
         <article class="finance-edition pro">
           <h3>Pro</h3>
@@ -314,24 +314,33 @@
             <li>Kreditmanager, Verträge und Sparziele</li>
             <li>Finanzassistent und PDF-Monatsberichte</li>
           </ul>
-          <span class="finance-coming">Noch nicht bestellbar</span>
+          <button type="button" class="finance-coming sandbox-buy" hidden data-product="finanzmanager_pro">Sandbox-Testkauf Pro</button><span class="finance-coming public-coming">Noch nicht bestellbar</span>
         </article>
       </div>
-      <section id="live-checkout" class="live-panel" hidden aria-labelledby="live-title">
-        <h3 id="live-title">PayPal-Live-Test – echtes Geld</h3>
-        <p>Nur für den kontrollierten Test. Keine öffentliche Verkaufsfreigabe. Die Zahlungsabbuchung bleibt zunächst serverseitig gesperrt. Bitte echte Rechnungsdaten eingeben.</p>
-        <form id="live-form">
-          <input type="hidden" name="product_id" id="live-product">
-          <label for="live-first">Vorname</label><input id="live-first" name="customer_first_name" maxlength="100" required autocomplete="given-name">
-          <label for="live-last">Nachname</label><input id="live-last" name="customer_last_name" maxlength="100" required autocomplete="family-name">
-          <label for="live-email">E-Mail-Adresse</label><input id="live-email" name="customer_email" type="email" maxlength="254" required autocomplete="email">
-          <label for="live-street">Straße und Hausnummer</label><input id="live-street" name="customer_street" maxlength="180" required autocomplete="street-address">
-          <label for="live-postal">Postleitzahl</label><input id="live-postal" name="customer_postal_code" maxlength="20" required autocomplete="postal-code">
-          <label for="live-city">Ort</label><input id="live-city" name="customer_city" maxlength="100" required autocomplete="address-level2">
-          <label for="live-country">Land</label><input id="live-country" name="customer_country" maxlength="100" required value="Deutschland" autocomplete="country-name">
-          <p id="live-selection" aria-live="polite"></p>
-          <button id="live-submit" type="submit">PayPal-Live-Bestellung vorbereiten</button>
-          <p id="live-feedback" role="status" aria-live="polite"></p>
+      <section id="sandbox-checkout" class="sandbox-panel" hidden aria-labelledby="sandbox-title">
+        <h3 id="sandbox-title">Interner PayPal-Sandbox-Test</h3>
+        <p>Nur Testgeld. Noch keine echte Bestellung und keine Kundenfreigabe. Für diesen Test ist ausschließlich das eigene Firmenpostfach erlaubt.</p>
+        <form id="sandbox-form">
+          <input type="hidden" name="product_id" id="sandbox-product">
+          <label for="sandbox-first">Vorname</label>
+          <input id="sandbox-first" name="customer_first_name" value="Max" maxlength="100" required autocomplete="given-name">
+          <label for="sandbox-last">Nachname</label>
+          <input id="sandbox-last" name="customer_last_name" value="Mustermann" maxlength="100" required autocomplete="family-name">
+          <label for="sandbox-email">E-Mail-Adresse</label>
+          <input id="sandbox-email" name="customer_email" type="email" value="kontakt@monsterdigitalsolutions.de" required autocomplete="email">
+          <label for="sandbox-street">Straße und Hausnummer (Rechnungsanschrift)</label>
+          <input id="sandbox-street" name="customer_street" maxlength="180" required autocomplete="street-address" placeholder="Musterstraße 12">
+          <label for="sandbox-postal">Postleitzahl</label>
+          <input id="sandbox-postal" name="customer_postal_code" maxlength="20" required autocomplete="postal-code" placeholder="12345">
+          <label for="sandbox-city">Ort</label>
+          <input id="sandbox-city" name="customer_city" maxlength="100" required autocomplete="address-level2" placeholder="Musterstadt">
+          <label for="sandbox-country">Land</label>
+          <input id="sandbox-country" name="customer_country" maxlength="100" required autocomplete="country-name" value="Deutschland">
+          <label for="sandbox-discount">Rabattcode (optional)</label>
+          <input id="sandbox-discount" name="discount_code" value="TEST20" maxlength="100">
+          <p id="sandbox-selection" aria-live="polite"></p>
+          <button id="sandbox-submit" type="submit">Sandbox-Bestellung bei PayPal erstellen</button>
+          <p id="sandbox-feedback" class="sandbox-result" role="status" aria-live="polite"></p>
         </form>
       </section>
       <a class="finance-detail-link" href="finanzmanager.html">Alle Funktionen entdecken &amp; Versionen vergleichen →</a>
@@ -341,7 +350,7 @@
     <aside class="notice">Noch keine Downloads oder Bestellungen möglich. Der Veröffentlichungstermin steht noch nicht fest.</aside>
   </main>
   <footer>
-    <span>© 2026 TheMonsterz · monsterdigitalsolutions.de</span>
+    <span>© 2026 Monster Digital Solutions · monsterdigitalsolutions.de</span>
     <div class="legal-links">
       <a href="impressum.html">Impressum</a>
       <a href="agb.html">AGB</a>
@@ -351,50 +360,55 @@
   </footer>
   <script>
   (() => {
-    // Nur ein sichtbarer Testmodus, KEIN Zugriffsschutz.
-    // PAYPAL_LIVE_CAPTURE_ENABLED muss serverseitig false bleiben.
-    if (new URLSearchParams(location.search).get('live_test') !== '1') return;
-    const panel = document.getElementById('live-checkout');
-    const form = document.getElementById('live-form');
-    const feedback = document.getElementById('live-feedback');
-    const selection = document.getElementById('live-selection');
-    const submit = document.getElementById('live-submit');
-    const productField = document.getElementById('live-product');
-    const endpoint = 'https://dqnavxhuotpzvsytlbtz.supabase.co/functions/v1/paypal-create-order-live';
-    document.querySelectorAll('.live-buy').forEach(button => {
+    // Testoberflaeche absichtlich nur mit ?sandbox_test=1 aktivierbar.
+    // KEINE Geheimnisse oder Service-Role-Schluessel in diese Datei schreiben.
+    if (new URLSearchParams(location.search).get('sandbox_test') !== '1') return;
+    const panel = document.getElementById('sandbox-checkout');
+    const form = document.getElementById('sandbox-form');
+    const feedback = document.getElementById('sandbox-feedback');
+    const selection = document.getElementById('sandbox-selection');
+    const submit = document.getElementById('sandbox-submit');
+    const productField = document.getElementById('sandbox-product');
+    const endpoint = 'https://dqnavxhuotpzvsytlbtz.supabase.co/functions/v1/paypal-create-order';
+    document.querySelectorAll('.sandbox-buy').forEach(button => {
       button.hidden = false;
       button.addEventListener('click', () => {
         productField.value = button.dataset.product;
-        selection.textContent = productField.value === 'finanzmanager_pro' ? 'Pro – 59,99 €' : 'Standard – 35,99 €';
+        selection.textContent = productField.value === 'finanzmanager_pro' ? 'Auswahl: Pro – 59,99 € vor Rabatt' : 'Auswahl: Standard – 35,99 € vor Rabatt';
         feedback.textContent = '';
         panel.hidden = false;
-        panel.scrollIntoView({behavior:'smooth',block:'center'});
+        panel.scrollIntoView({ behavior:'smooth', block:'center' });
       });
     });
     form.addEventListener('submit', async event => {
       event.preventDefault();
-      if (!productField.value || !form.reportValidity()) return;
+      if (!productField.value) return;
+      const payload = Object.fromEntries(new FormData(form).entries());
+      if (String(payload.customer_email).trim().toLowerCase() !== 'kontakt@monsterdigitalsolutions.de') {
+        feedback.textContent = 'Sandbox-Test nur mit kontakt@monsterdigitalsolutions.de erlaubt.';
+        feedback.className = 'sandbox-result sandbox-error';
+        return;
+      }
       submit.disabled = true;
-      feedback.className = '';
-      feedback.textContent = 'PayPal-Live-Bestellung wird vorbereitet …';
+      feedback.textContent = 'PayPal-Sandbox-Bestellung wird vorbereitet …';
+      feedback.className = 'sandbox-result';
       try {
-        const payload = Object.fromEntries(new FormData(form).entries());
         const response = await fetch(endpoint, {
-          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)
+          method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload),
         });
         const data = await response.json();
-        if (!response.ok || !data.success || (data.environment && data.environment !== 'live') || !data.approval_url) {
-          throw new Error(data.error || 'Live-Bestellung konnte nicht erstellt werden.');
+        if (!response.ok || !data.success || data.environment !== 'sandbox' || !data.approval_url) {
+          throw new Error(data.error || 'Bestellung konnte nicht erstellt werden.');
         }
         const url = new URL(data.approval_url);
-        if (url.protocol !== 'https:' || !['www.paypal.com','paypal.com'].includes(url.hostname)) {
-          throw new Error('Unerwartete PayPal-Adresse.');
+        if (url.protocol !== 'https:' || url.hostname !== 'www.sandbox.paypal.com' && url.hostname !== 'sandbox.paypal.com') {
+          throw new Error('Unerwartete PayPal-Zahlungsadresse.');
         }
-        feedback.textContent = 'Weiterleitung zu PayPal. Zahlung noch nicht bestätigen.';
+        feedback.textContent = 'Bestellung ' + data.order_id + ' erstellt. Weiterleitung zu PayPal Sandbox …';
         location.assign(url.href);
       } catch(error) {
         feedback.textContent = error instanceof Error ? error.message : 'Unbekannter Fehler';
-        feedback.className = 'live-error';
+        feedback.className = 'sandbox-result sandbox-error';
         submit.disabled = false;
       }
     });
