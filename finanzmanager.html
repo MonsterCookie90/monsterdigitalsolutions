@@ -1,3 +1,97 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Monster Digital Solutions – Software, Webdesign und Musik."><title>Monster Digital Solutions</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mds-navigation.css">
-<link rel="stylesheet" href="mds-extra.css"></head><body><div id="app"></div><script src="app.js"></script><script src="mds-navigation.js"></script>
-<script defer src="mds-extra.js"></script><div class="mds-extra-block"><a href="vergleich.html">Standard und Pro vergleichen →</a></div></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monster Finanzmanager – Finanzen übersichtlich verwalten, Einnahmen und Ausgaben im Blick behalten, planen und auswerten.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://monsterdigitalsolutions.de/finanzmanager.html">
+  <title>Monster Finanzmanager | Monster Digital Solutions</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mds-navigation.css">
+  <link rel="stylesheet" href="mds-extra.css">
+  <style>
+    :root{--fm-bg:#040d19;--fm-card:#0a2032;--fm-line:#26516d;--fm-text:#f2f9ff;--fm-muted:#b7d0df;--fm-blue:#55d5ff}
+    body{background:var(--fm-bg);color:var(--fm-text)}
+    .fm-main{max-width:1180px;margin:0 auto;padding:36px 24px 110px;font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}
+    .fm-back{display:inline-flex;color:var(--fm-blue);text-decoration:none;margin:12px 0 34px}
+    .fm-back:hover,.fm-main a:hover{text-decoration:underline}
+    .fm-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center;margin-bottom:72px}
+    .fm-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;color:var(--fm-blue);font-weight:800}
+    .fm-hero h1{font-size:clamp(2.5rem,5.5vw,4.8rem);line-height:1.08;letter-spacing:-.045em;margin:14px 0 20px}
+    .fm-hero p,.fm-section-intro{font-size:1.12rem;color:var(--fm-muted);max-width:680px}
+    .fm-hero img{display:block;width:100%;border-radius:17px;border:1px solid var(--fm-line);box-shadow:0 18px 55px #0007}
+    .fm-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .fm-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #33bff1;background:#087db4;color:#fff!important;text-decoration:none!important;padding:12px 19px;border-radius:10px;font-weight:750}
+    .fm-button.secondary{background:transparent;color:#bdefff!important}
+    .fm-section{margin-top:68px}
+    .fm-section h2{font-size:clamp(1.7rem,3vw,2.5rem);margin:0 0 10px}
+    .fm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+    .fm-card{background:var(--fm-card);border:1px solid var(--fm-line);border-radius:16px;padding:22px;min-width:0}
+    .fm-card h3{color:#effbff;margin:0 0 8px;font-size:1.08rem}
+    .fm-card p{color:var(--fm-muted);margin:0}
+    .fm-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
+    .fm-gallery figure{min-width:0;margin:0;border:1px solid var(--fm-line);border-radius:14px;overflow:hidden;background:var(--fm-card)}
+    .fm-gallery img{display:block;width:100%;height:auto;aspect-ratio:1.65;object-fit:contain;background:#091526}
+    .fm-gallery figcaption{padding:11px 15px;color:var(--fm-muted);font-size:.94rem}
+    .fm-note{margin-top:58px;padding:22px;border:1px solid var(--fm-line);border-radius:14px;background:var(--fm-card);color:var(--fm-muted)}
+    .fm-footer{border-top:1px solid #23445e;padding:28px 18px 65px;background:#030b16;color:#bdcedd;text-align:center;font:14px/1.8 system-ui,sans-serif}
+    .fm-footer .fm-footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 20px;margin-top:9px}
+    .fm-footer a{color:#c0eaff;text-decoration:none}.fm-footer a:hover{text-decoration:underline}
+    @media(max-width:920px){.fm-hero{grid-template-columns:1fr;gap:24px}.fm-gallery,.fm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.fm-main{padding:16px 16px 85px}.fm-gallery,.fm-grid{grid-template-columns:1fr}.fm-hero{margin-bottom:42px}.fm-section{margin-top:44px}}
+  </style>
+</head>
+<body>
+  <header class="top"><nav aria-label="Hauptnavigation"><a href="index.html">Monster Digital Solutions</a></nav></header>
+  <main class="fm-main" id="hauptinhalt">
+    <a class="fm-back" href="software.html">← Zurück zur Softwareübersicht</a>
+    <section class="fm-hero" aria-labelledby="fm-title">
+      <div>
+        <div class="fm-eyebrow">Windows-Software · Finanzverwaltung</div>
+        <h1 id="fm-title">Monster Finanzmanager</h1>
+        <p>Behalte deine Einnahmen, Ausgaben, Fixkosten und finanziellen Ziele im Blick. Plane deinen Alltag mit einer übersichtlichen Anwendung für deine persönliche Finanzverwaltung.</p>
+        <div class="fm-buttons">
+          <a class="fm-button" href="#funktionen">Funktionen entdecken</a>
+          <a class="fm-button secondary" href="#einblicke">Programm ansehen</a>
+        </div>
+      </div>
+      <img src="finanzmanager-screenshots/dashboard.jpg" alt="Einblick in die Übersicht des Monster Finanzmanagers" loading="eager">
+    </section>
+    <section class="fm-section" id="funktionen" aria-labelledby="funktionen-title">
+      <h2 id="funktionen-title">Deine Finanzen auf einen Blick</h2>
+      <p class="fm-section-intro">Vom täglichen Überblick bis zur längerfristigen Planung: Der Monster Finanzmanager bündelt verschiedene Bereiche deiner Finanzverwaltung an einem Ort.</p>
+      <div class="fm-grid">
+        <article class="fm-card"><h3>Einnahmen und Ausgaben</h3><p>Finanzbewegungen erfassen, ordnen und übersichtlich auswerten.</p></article>
+        <article class="fm-card"><h3>Fixkosten und Budgets</h3><p>Wiederkehrende Kosten und geplante Ausgaben im Blick behalten.</p></article>
+        <article class="fm-card"><h3>Verträge und Kredite</h3><p>Wichtige Verpflichtungen und laufende Zahlungen dokumentieren.</p></article>
+        <article class="fm-card"><h3>Finanzplanung</h3><p>Entwicklungen mit Monats- und Tagesprognosen besser einschätzen.</p></article>
+        <article class="fm-card"><h3>Zahlungskalender</h3><p>Anstehende Zahlungen in einer zeitlichen Übersicht betrachten.</p></article>
+        <article class="fm-card"><h3>Sparziele</h3><p>Individuelle finanzielle Ziele festhalten und den Fortschritt verfolgen.</p></article>
+      </div>
+    </section>
+    <section class="fm-section" id="einblicke" aria-labelledby="einblicke-title">
+      <h2 id="einblicke-title">Einblicke in das Programm</h2>
+      <p class="fm-section-intro">So sehen verschiedene Bereiche des Monster Finanzmanagers aus. Die Abbildungen zeigen Programmansichten; Details können sich durch Aktualisierungen ändern.</p>
+      <div class="fm-gallery">
+        <figure><img src="finanzmanager-screenshots/einnahmen.jpg" alt="Ansicht zur Erfassung von Einnahmen" loading="lazy"><figcaption>Einnahmen</figcaption></figure>
+        <figure><img src="finanzmanager-screenshots/ausgaben.jpg" alt="Ansicht zur Verwaltung von Ausgaben" loading="lazy"><figcaption>Ausgaben</figcaption></figure>
+        <figure><img src="finanzmanager-screenshots/budgets.jpg" alt="Budgetübersicht" loading="lazy"><figcaption>Budgets</figcaption></figure>
+        <figure><img src="finanzmanager-screenshots/zahlungskalender.jpg" alt="Zahlungskalender" loading="lazy"><figcaption>Zahlungskalender</figcaption></figure>
+        <figure><img src="finanzmanager-screenshots/kredite.jpg" alt="Kreditübersicht" loading="lazy"><figcaption>Kredite</figcaption></figure>
+        <figure><img src="finanzmanager-screenshots/sparziele.jpg" alt="Ansicht für Sparziele" loading="lazy"><figcaption>Sparziele</figcaption></figure>
+      </div>
+    </section>
+    <aside class="fm-note">Du hast Fragen zum Monster Finanzmanager oder möchtest eine Funktion vorschlagen? <a href="kontakt.html" style="color:#7bdbff">Kontaktiere uns</a> oder nutze unseren Website-Assistenten MILO.</aside>
+  </main>
+  <footer class="fm-footer">
+    <div>© <span id="fm-year">2026</span> Monster Digital Solutions</div>
+    <nav class="fm-footer-links" aria-label="Rechtliche Hinweise und Kontakt">
+      <a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="widerruf.html">Widerruf</a><a href="kontakt.html">Kontakt</a><a href="feedback.html">Ideen &amp; Feedback</a>
+    </nav>
+  </footer>
+  <script>document.getElementById('fm-year').textContent = new Date().getFullYear();</script>
+  <script src="mds-navigation.js"></script>
+  <script defer src="mds-extra.js"></script>
+</body>
+</html>
