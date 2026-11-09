@@ -11,11 +11,10 @@
         "finanzen",
         "einnahmen",
         "ausgaben",
-        "geld",
         "budget"
       ],
       "title": "Monster Finanzmanager",
-      "answer": "Der Monster Finanzmanager unterstützt bei Einnahmen, Ausgaben, Verträgen und der Finanzplanung. Je nach Lizenz stehen weitere Funktionen wie Dateiimport, Kredite und Prognosen zur Verfügung. Details und den aktuellen Angebotsstatus findest du auf der Produktseite.",
+      "answer": "Der Monster Finanzmanager hilft dir bei der Verwaltung deiner Finanzen. Informationen zu Funktionen und Verfügbarkeit findest du auf der Produktseite.",
       "url": "finanzmanager.html"
     },
     {
@@ -23,65 +22,58 @@
         "schichtplaner",
         "dienstplan",
         "terminplaner",
-        "schicht",
-        "mitarbeiter",
-        "busconnect"
+        "busconnect",
+        "schicht"
       ],
-      "title": "Monster Schichtplaner",
-      "answer": "Der Monster Schichtplaner ist in Entwicklung. Geplant sind Dienst- und Schichtplanung, Zeitkonten, Qualifikationen, Rollen, flexible Module und Monster BusConnect. Ein verbindlicher Veröffentlichungstermin steht nicht fest.",
+      "title": "Monster Terminplaner",
+      "answer": "Der Monster Terminplaner befindet sich in Entwicklung. Aktuelle Informationen findest du auf der Produktseite.",
       "url": "terminplaner.html"
     },
     {
       "keys": [
         "webdesign",
-        "webdesgn",
-        "website erstellen",
         "website",
         "webseite",
         "homepage",
+        "webdesgn",
         "firmenwebsite",
-        "firmenhomepage",
-        "internetauftritt",
-        "webdesign anfrage",
-        "website anfrage",
-        "homepage erstellen",
-        "webseite erstellen",
-        "website erstellen lassen",
-        "webdesign anfragen",
-        "homepage anfragen",
-        "webseite anfragen",
-        "website pflege",
-        "webseitenpflege",
-        "pflege"
+        "internetauftritt"
       ],
       "title": "Webdesign",
-      "answer": "Monster Digital Solutions bietet Website-Erstellung und Pflege an. Auf der Webdesign-Seite findest du Informationen zu unseren Leistungen und kannst eine Anfrage zur Erstellung deiner Website stellen.",
+      "answer": "Du kannst eine neue Website oder die Überarbeitung einer bestehenden Website anfragen.",
       "url": "webdesign.html"
     },
     {
       "keys": [
-        "support",
-        "fehler",
-        "problem",
-        "absturz",
-        "lizenz funktioniert",
-        "installation"
+        "musik",
+        "themonsterz",
+        "monstrum",
+        "spotify"
       ],
-      "title": "Technischer Support",
-      "answer": "Bei technischen Problemen hilft dir unser Support unter support@monsterdigitalsolutions.de. Bitte keine Passwörter, Lizenzschlüssel oder vertraulichen Finanzdaten im Chat eingeben.",
-      "url": "kontakt.html"
+      "title": "Musik",
+      "answer": "Auf unserer Musikseite findest du die Musikprojekte und weiterführende Links.",
+      "url": "musik.html"
     },
     {
       "keys": [
-        "idee",
-        "softwarewunsch",
-        "vorschlag",
-        "feedback",
-        "verbesserung"
+        "veroffentlichung",
+        "release",
+        "entwicklungsstand",
+        "wann verfugbar"
       ],
-      "title": "Ideen und Feedback",
-      "answer": "Du kannst Funktionswünsche, Verbesserungsvorschläge und Ideen für ganz neue Software über unser Feedbackformular einreichen.",
-      "url": "feedback.html"
+      "title": "Entwicklungsstand",
+      "answer": "Verbindliche Veröffentlichungstermine nennen wir nur, wenn sie offiziell bestätigt sind.",
+      "url": "entwicklung.html"
+    },
+    {
+      "keys": [
+        "vergleich",
+        "standard",
+        "pro version"
+      ],
+      "title": "Produktvergleich",
+      "answer": "Informationen zu den Software-Versionen findest du auf unserer Vergleichsseite.",
+      "url": "vergleich.html"
     },
     {
       "keys": [
@@ -91,44 +83,48 @@
         "anschreiben"
       ],
       "title": "Kontakt",
-      "answer": "Für allgemeine Fragen nutze kontakt@monsterdigitalsolutions.de. Bei Softwareproblemen erreichst du support@monsterdigitalsolutions.de.",
+      "answer": "Für allgemeine Fragen kannst du uns über die Kontaktseite erreichen.",
       "url": "kontakt.html"
     },
     {
       "keys": [
-        "veröffentlichung",
-        "erscheint",
-        "release",
-        "wann verfügbar",
-        "termin"
+        "pflegevertrag",
+        "wartung",
+        "website pflege"
       ],
-      "title": "Entwicklungsstand",
-      "answer": "Verbindliche Veröffentlichungstermine nennen wir nur, wenn sie offiziell bestätigt wurden. Die Entwicklungsübersicht zeigt den jeweils veröffentlichten Status.",
-      "url": "entwicklung.html"
+      "title": "Website-Pflege",
+      "answer": "Wir bieten auch Website-Pflege an. Die Einzelheiten besprechen wir passend zu deinem Projekt.",
+      "url": "webdesign.html"
     },
     {
       "keys": [
-        "preis",
-        "standard",
-        "pro",
-        "vergleich",
-        "lizenz"
+        "website bearbeiten",
+        "homepage andern",
+        "website modernisieren"
       ],
-      "title": "Produktvergleich",
-      "answer": "Für den Monster Finanzmanager findest du den Vergleich von Standard und Pro auf unserer Vergleichsseite. Beim Schichtplaner werden während der Entwicklung keine Tarife oder Preise veröffentlicht.",
-      "url": "vergleich.html"
+      "title": "Website-Überarbeitung",
+      "answer": "Du kannst auch eine bestehende Website überarbeiten oder modernisieren lassen.",
+      "url": "webdesign.html"
     },
     {
       "keys": [
-        "musik",
-        "themonsterz",
-        "monstrum",
-        "nexus",
-        "spotify"
+        "software testen",
+        "testversion",
+        "demo"
       ],
-      "title": "Musik",
-      "answer": "Auf unserer Musikseite findest du TheMonsterz, Monstrum Invictum und Nexus Infernum mit Links zu ihren Spotify-Profilen.",
-      "url": "musik.html"
+      "title": "Testversionen",
+      "answer": "Ob eine Testversion angeboten wird, erfährst du auf der jeweiligen Produktseite.",
+      "url": "software.html"
+    },
+    {
+      "keys": [
+        "eigene software",
+        "software entwickeln",
+        "softwarewunsch"
+      ],
+      "title": "Softwarewunsch",
+      "answer": "Du kannst uns deinen Softwarewunsch über das Feedbackformular mitteilen.",
+      "url": "feedback.html"
     }
   ]
 }
