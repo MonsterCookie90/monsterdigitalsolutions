@@ -1,6 +1,6 @@
 /* Einheitliche Hauptnavigation von Monster Digital Solutions */
 (() => {
-  const items = [['index.html','Startseite'],['software.html','Software'],['webdesign.html','Webdesign'],['musik.html','Musik'],['shop.html','Shop'],['partner.html','Partner'],['kontakt.html','Kontakt'],['kundencenter.html','Kundencenter']];
+  const items = [['index.html','Startseite'],['software.html','Software'],['webdesign.html','Webdesign'],['musik.html','Musik'],['shop.html','Shop'],['partner.html','Partner'],['kontakt.html','Kontakt']];
   const render = () => {
     const oldHeader = document.querySelector('header.top, header.site-header, body > header');
     if (!oldHeader || document.querySelector('.mds-global-nav')) return;

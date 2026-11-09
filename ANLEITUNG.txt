@@ -1,0 +1,19 @@
+Monster Digital Solutions – Kleines Website-Update
+
+Ziel: Kundencenter in der ALLGEMEINEN Kopfzeile ausblenden.
+
+Geändert wurde NUR mds-navigation.js, basierend auf dem aktuellen main-Branch am 09.11.2026.
+Die Kundencenter-Seite selbst bleibt erreichbar und unverändert.
+
+GitHub-Installation:
+1. https://github.com/MonsterCookie90/monsterdigitalsolutions öffnen.
+2. Datei mds-navigation.js im Hauptverzeichnis öffnen.
+3. Über das Stiftsymbol die Datei bearbeiten.
+4. Den gesamten Dateiinhalt durch den Inhalt der beiliegenden mds-navigation.js ersetzen.
+5. Mit "Commit changes" auf main speichern.
+6. Seite neu laden; ggf. Strg+F5 drücken.
+
+Alternativ Datei via GitHub Upload ersetzen, falls eine Überschreibung angeboten wird.
+
+Keine anderen Dateien aus dem Repository löschen oder verändern.
+Wichtig: Die Kundencenter-eigene Kopfzeile enthält weiterhin den eigenen Kundencenter-Link.
